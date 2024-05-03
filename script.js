@@ -36,6 +36,7 @@ window.onload = function () {
         console.log("left pos = " + leftPosition);
     }
 
+    // Positioning
     const kitchen = document.getElementById("kitchen");
     const kitchenSet = document.getElementById("kitchenSet");
     const fridge = document.getElementById("fridge");
@@ -48,6 +49,7 @@ window.onload = function () {
     kitchen.style.top = 12 * pixelSize + "px";
     console.log("kitchen top: " + kitchen.style.top);
     fridge.style.top = 6 * pixelSize + "px";
+    kitchen.style.width = stove.clientWidth + kitchenSet.clientWidth + fridge.clientWidth + "px"; // to be able to center the kitchen
 
 }
 

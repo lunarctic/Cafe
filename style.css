@@ -110,8 +110,13 @@ body{
 } */
 
 #kitchen{
-   
     position: absolute;;
-    left: 300px;
+    left: 50%; /* Place at the horizontal center */
+    transform: translateX(-50%); /* Adjust to center horizontally */
 }
 
+#counter{
+    position: absolute;;
+    left: 50%; /* Place at the horizontal center */
+    transform: translateX(-50%); /* Adjust to center horizontally */
+}
