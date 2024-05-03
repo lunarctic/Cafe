@@ -18,16 +18,13 @@ let leftPosition = 0;
 window.onload = function () {
     // Scale the furniture sizes
     for (const furniture of furnitures) {
-        const originalWidth = furniture.clientWidth;
+        let originalWidth = furniture.clientWidth;
         console.log("original width = " + originalWidth);
         if (furniture.id == "fridge") {
-            console.log("new width = " + (originalWidth * (pixelSize + 0.7)));
-            furniture.style.width = originalWidth * (pixelSize + 0.7) + "px";
+            originalWidth = originalWidth * 1.4;
         }
-        else {
-            console.log("new width = " + (originalWidth * pixelSize));
-            furniture.style.width = originalWidth * pixelSize + "px";
-        }
+        console.log("new width = " + (originalWidth * pixelSize));
+        furniture.style.width = originalWidth * pixelSize + "px";
     }
 
     // Put up the walls
@@ -44,8 +41,14 @@ window.onload = function () {
     const fridge = document.getElementById("fridge");
     const stove = document.getElementById("stove");
 
-    kitchenSet.style.left = stove.clientWidth;
+    stove.style.left = 0 + "px";
+    kitchenSet.style.left = stove.clientWidth + "px";
     console.log("kitchenset left: " + kitchenSet.style.left);
+    fridge.style.left = stove.clientWidth + kitchenSet.clientWidth + "px";
+    kitchen.style.top = 12 * pixelSize + "px";
+    console.log("kitchen top: " + kitchen.style.top);
+    fridge.style.top = 6 * pixelSize + "px";
+
 }
 
 
