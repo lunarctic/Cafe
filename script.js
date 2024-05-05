@@ -4,16 +4,17 @@ const plate = document.getElementById("plate");
 
 let scaleSize = 4; //for feet
 
-let x = 20; // Initial character X position
-let y = 350; // Initial character Y position
-let speed = 5; // Character movement speed
+let x = 600; // Initial character X position
+let y = 150; // Initial character Y position
+let speed = 8; // Character movement speed
 character.style.left = x + "px";
 character.style.top = y + "px";
 
 const pixelSize = 4; // Scaling factor
 const furnitures = document.querySelectorAll("#furniture img"); // Furniture element
 const walls = document.querySelectorAll("#wall img");
-let leftPosition = 0;
+const counter = document.getElementById("counter");
+const kitchenFloor = document.getElementById("kitchen_floor");
 
 window.onload = function () {
     // Scale the furniture sizes
@@ -26,9 +27,13 @@ window.onload = function () {
         console.log("new width = " + (originalWidth * pixelSize));
         furniture.style.width = originalWidth * pixelSize + "px";
     }
+    counter.style.width = counter.clientWidth * pixelSize + "px";
 
+    let leftPosition = 0;
     // Put up the walls
     for (const wall of walls) {
+        let originalWidth = wall.clientWidth;
+        wall.style.width = originalWidth * pixelSize + "px";
         wall.style.left = leftPosition + "px";
         const ogWidth = wall.clientWidth;
         console.log("og width = " + ogWidth);
@@ -51,9 +56,11 @@ window.onload = function () {
     fridge.style.top = 6 * pixelSize + "px";
     kitchen.style.width = stove.clientWidth + kitchenSet.clientWidth + fridge.clientWidth + "px"; // to be able to center the kitchen
 
+    //styling the tiled floor
+    kitchenFloor.style.width = 166 * pixelSize + "px";
+    kitchenFloor.style.height = 65 * pixelSize + "px";
+    kitchenFloor.style.backgroundSize = (25 * pixelSize) + "px" + " " + (25 * pixelSize) + "px";
 }
-
-
 
 /*
 //or like this
@@ -66,17 +73,27 @@ window.onload = function() {
 */
 
 const feet = document.getElementById("feet");
+const kitchenFloorWidth = kitchenFloor.clientWidth;
+const kitchenFloorRect = {
+    top: kitchenFloor.getBoundingClientRect().top,
+    left: kitchenFloor.getBoundingClientRect().left,
+    right: kitchenFloor.getBoundingClientRect().right,
+    bottom: kitchenFloor.getBoundingClientRect().bottom,
+}
 
 function checkCollision(newFeetX, newFeetY) {
     const feetRect = {
         top: newFeetY,
         left: newFeetX,
-        right: newFeetX + (25 * scaleSize),
+        right: newFeetX + (22 * scaleSize),
         bottom: newFeetY + (3 * scaleSize),
     };
+    console.log(kitchenFloorRect)
+    console.log(feetRect)
 
     for (const furniture of furnitures) {
         const furnitureRect = {
+            name: furniture.id,
             top: furniture.getBoundingClientRect().top,
             left: furniture.getBoundingClientRect().left,
             right: furniture.getBoundingClientRect().right,
@@ -84,15 +101,20 @@ function checkCollision(newFeetX, newFeetY) {
         };
 
         if (
-            feetRect.right > furnitureRect.left &&
+           (feetRect.right > furnitureRect.left &&
             feetRect.left < furnitureRect.right &&
             feetRect.bottom > furnitureRect.top &&
-            feetRect.top < furnitureRect.bottom
+            feetRect.top < furnitureRect.bottom) 
         ) {
+            console.log(furnitureRect)
+            console.log(feetRect)
+            console.log("furniture collision");
+            console.log("furniture " + furniture.clientWidth); //sth is up with the wall
             return true; // Collision detected
         }
+        console.log(furnitureRect)
+        console.log(feetRect)
     }
-
     return false; // No collision
 }
 
@@ -100,35 +122,37 @@ document.addEventListener("keydown", function (event) {
     console.log(event);
     let newX = x; // New potential X position
     let newY = y; // New potential Y position
-
+    let newFeetX = newX + (5 * scaleSize);
+    let newFeetY = newY + (30 * scaleSize);
     //left
     if (event.code == "ArrowLeft") {
         newX -= speed;
         character_spritesheet.classList.add("face-left", "animate_spritesheet")
         plate.classList.add("animate_plate")
+        newFeetX = newX - (5 * scaleSize); 
     }
     //up
     else if (event.code == "ArrowUp") {
         newY -= speed;
         character_spritesheet.classList.add("face-back", "animate_spritesheet")
+        newFeetY = newY - (30 * scaleSize);
     }
     //right
     else if (event.code == "ArrowRight") {
         newX += speed;
         character_spritesheet.classList.add("face-right", "animate_spritesheet")
+        newFeetX = newX + (5 * scaleSize); 
     }
     //down
     else if (event.code == "ArrowDown") {
         newY += speed;
         character_spritesheet.classList.add("animate_spritesheet")
+        newY + (30 * scaleSize);
     }
 
     console.log("newX: " + newX);
     console.log("newY: " + newY);
-
-    let newFeetX = newX + (3.5 * scaleSize);
     console.log("newFeetX: " + newFeetX);
-    let newFeetY = newY + (30 * scaleSize);
     console.log("newFeetY: " + newFeetY);
 
     if (!checkCollision(newFeetX, newFeetY)) {

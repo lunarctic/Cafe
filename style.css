@@ -1,15 +1,15 @@
-:root{
+:root {
     --pixel-size: 4;
 }
 
-body{
+body {
     background-image: url("img/furniture/planks2.png");
     background-size: 50px 50px;
     background-repeat: repeat;
     image-rendering: pixelated;
 }
 
-.character{
+.character {
     width: calc(32px * var(--pixel-size));
     height: calc(33px * var(--pixel-size));
     overflow: hidden;
@@ -17,12 +17,12 @@ body{
     z-index: 9999;
 }
 
-.animate_spritesheet{
+.animate_spritesheet {
     animation: moveSpritesheet 2s steps(3) infinite;
     left: 0 !important;
 }
 
-.character_spritesheet{
+.character_spritesheet {
     left: calc(-32px * var(--pixel-size));
     width: calc(96px * var(--pixel-size));
     position: absolute;
@@ -32,28 +32,29 @@ body{
     image-rendering: pixelated;
 }
 
-@keyframes moveSpritesheet{
-    from{
-        transform: translate3d(0px,0,0)
+@keyframes moveSpritesheet {
+    from {
+        transform: translate3d(0px, 0, 0)
     }
-    to{
-        transform: translate3d(-100%,0,0);
+
+    to {
+        transform: translate3d(-100%, 0, 0);
     }
 }
 
-.face-left{
+.face-left {
     top: calc(-32px * var(--pixel-size));
 }
 
-.face-right{
+.face-right {
     top: calc(-64px * var(--pixel-size));
 }
 
-.face-back{
+.face-back {
     top: calc(-96px * var(--pixel-size));
 }
 
-#plate{
+#plate {
     width: calc(13px * var(--pixel-size));
     z-index: 12323;
     position: absolute;
@@ -61,41 +62,38 @@ body{
     left: calc(1px * var(--pixel-size));
 }
 
-.animate_plate{
+.animate_plate {
     animation: movePlateRight 2s steps(3) infinite;
 }
 
-@keyframes movePlateRight{
-    from{
-        transform: translate3d(0px,0,0);
+@keyframes movePlateRight {
+    from {
+        transform: translate3d(0px, 0, 0);
     }
-    to{
-        transform: translate3d(10%,0,0);
+
+    to {
+        transform: translate3d(10%, 0, 0);
     }
 }
 
 #feet {
     background-color: rgba(0, 255, 0, 0.3);
-    width: calc(25px * var(--pixel-size));
+    width: calc(22px * var(--pixel-size));
     height: calc(3px * var(--pixel-size));
     position: absolute;
     bottom: 0;
-    right: calc(3.5px * var(--pixel-size));
+    right: calc(5px * var(--pixel-size));
 }
 
-#wall img{
+#wall img {
     position: absolute;
     top: 0;
     z-index: -99 !important;
 }
 
-#furniture img{
+#furniture img {
     position: absolute;
     z-index: 222;
-}
-
-#tiles{
-    z-index: 1 !important;
 }
 
 /*
@@ -109,14 +107,31 @@ body{
     left: 432px;
 } */
 
-#kitchen{
-    position: absolute;;
-    left: 50%; /* Place at the horizontal center */
-    transform: translateX(-50%); /* Adjust to center horizontally */
+#kitchen {
+    position: absolute;
+    left: 50%;
+    /* Place at the horizontal center */
+    transform: translateX(-50%);
+    /* Adjust to center horizontally */
 }
 
-#counter{
-    position: absolute;;
-    left: 50%; /* Place at the horizontal center */
-    transform: translateX(-50%); /* Adjust to center horizontally */
+#counter {
+    position: absolute;
+    z-index: 99999;
+    left: 50%;
+    /* Place at the horizontal center */
+    transform: translateX(-50%);
+    /* Adjust to center horizontally */
 }
+
+#kitchen_floor {
+    background-image: url("img/furniture/tiles.png");
+    background-repeat: repeat; /* Repeat both horizontally and vertically */
+    position: absolute;
+    z-index: -9999;
+    left: 50%;
+    /* Place at the horizontal center */
+    transform: translateX(-50%);
+    /* Adjust to center horizontally */
+}
+
