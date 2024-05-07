@@ -5,6 +5,7 @@ TO DO
 -check why there is a gap between feet and furniture
     -on the left side of the counter there is a bigger gap for some reason
     update: i tried fixing it and now the char doesnt move at all
+-whats the difference between + and , in console.log and which one do we use?
 
 IDEAS
 -go shopping for food (i dont think i have time for this)

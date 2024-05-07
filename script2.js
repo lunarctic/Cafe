@@ -1,7 +1,6 @@
 const character = document.getElementById("character");
 const character_spritesheet = document.getElementById("character_spritesheet");
 //const plate = document.getElementById("plate");
-const feet = document.getElementById("feet");
 
 const furnitures = document.querySelectorAll("#furniture img"); // Furniture element
 const walls = document.querySelectorAll("#wall img");
@@ -13,25 +12,25 @@ const kitchenSet = document.getElementById("kitchenSet");
 const fridge = document.getElementById("fridge");
 const stove = document.getElementById("stove");
 
-const scaleSize = 1; //for feet, because maybe i'll want to give the character a different size
-const pixelSize = 1; // Scaling factor
+const scaleSize = 4; //for feet
+const pixelSize = 4; // Scaling factor
 
 function scaleFurniture() {
     // Scale the furniture sizes
     for (const furniture of furnitures) {
         let originalWidth = furniture.clientWidth;
-        // console.log("original width = " + originalWidth);
+        console.log("original width = " + originalWidth);
         if (furniture.id == "fridge") {
             originalWidth = originalWidth * 1.4; //the fridge was small compared to other furniture so i fixed it here
         }
-        // console.log("new width = " + (originalWidth * pixelSize));
+        console.log("new width = " + (originalWidth * pixelSize));
         furniture.style.width = originalWidth * pixelSize + "px";
     }
     //have to do the counter seperately because it doesn't have the furniture ID
     counter.style.width = counter.clientWidth * pixelSize + "px";
     //styling the tiled floor
     kitchenFloor.style.width = 166 * pixelSize + "px";
-    kitchenFloor.style.height = 54 * pixelSize + "px";
+    kitchenFloor.style.height = 65 * pixelSize + "px";
     kitchenFloor.style.backgroundSize = (25 * pixelSize) + "px" + " " + (25 * pixelSize) + "px";
 }
 
@@ -53,12 +52,10 @@ function putWalls() {
 function positioningFurniture() {
     stove.style.left = 0 + "px"; //can do this in CSS?
     kitchenSet.style.left = stove.clientWidth + "px";
-    // console.log("kitchenset left: " + kitchenSet.style.left);
+    console.log("kitchenset left: " + kitchenSet.style.left);
     fridge.style.left = stove.clientWidth + kitchenSet.clientWidth + "px";
-    kitchen.style.top = 9 * pixelSize + "px";
-    counter.style.top = 33 * pixelSize + "px";
-    kitchenFloor.style.top = 48 * pixelSize + "px";
-    // console.log("kitchen top: " + kitchen.style.top);
+    kitchen.style.top = 12 * pixelSize + "px";
+    console.log("kitchen top: " + kitchen.style.top);
     fridge.style.top = 6 * pixelSize + "px";
     kitchen.style.width = stove.clientWidth + kitchenSet.clientWidth + fridge.clientWidth + "px"; // to be able to center the kitchen
 }
@@ -67,11 +64,26 @@ scaleFurniture();
 putWalls();
 positioningFurniture();
 
-const kitchenFloorWidth = kitchenFloor.clientWidth; //need to get it AFTER the scaling function is run (? or not?)
+const feet = document.getElementById("feet");
+const kitchenFloorWidth = kitchenFloor.clientWidth;
+
+//getting the kitchen floor's position
+/* const kitchenFloorRect = {
+    top: kitchenFloor.getBoundingClientRect().top,
+    left: kitchenFloor.getBoundingClientRect().left,
+    right: kitchenFloor.getBoundingClientRect().right,
+    bottom: kitchenFloor.getBoundingClientRect().bottom,
+} */
+
+//checks
+console.log("kitchenFloorWidth = " + kitchenFloorWidth);
+//console.log("kitchenFloor right = " + kitchenFloorRect.right);
+//console.log("kitchenFloorWidth + kitchenFloorRect.left = " , (kitchenFloorWidth + kitchenFloorRect.left));
+//console.log("kitchenFloorRect = ", kitchenFloorRect);
 
 let x = 600; // Initial character X position
 let y = 150; // Initial character Y position
-let speed = 2 * pixelSize; // Character movement speed
+let speed = 8; // Character movement speed
 character.style.left = x + "px";
 character.style.top = y + "px";
 
@@ -82,8 +94,6 @@ function checkCollision(newFeetX, newFeetY) {
         right: newFeetX + feet.clientWidth,
         bottom: newFeetY + feet.clientHeight,
     };
-    feetJS.style.width = feet.clientWidth + "px";
-    feetJS.style.height = feet.clientHeight + "px";
     //console.log("kitchenFloorRect ", kitchenFloorRect)
     console.log("feetRect ", feetRect)
 
@@ -106,39 +116,14 @@ function checkCollision(newFeetX, newFeetY) {
             console.log("collision feetRect " , feetRect);
             console.log("furniture collision");
             console.log("furniture " + furniture.clientWidth); //sth is up with the wall
-            newFeetJS.style.width = feet.clientWidth + "px";
-            newFeetJS.style.height = feet.clientHeight + "px";
-            newFeetJS.style.left = newFeetX + "px";
-            newFeetJS.style.top = newFeetY + "px";
             return true; // Collision detected
         }
         console.log("furnitureRect ", furnitureRect);
         console.log("feetRect " , feetRect);
     }
-
-    //getting the kitchen floor's position (to check collisions)
-    const kitchenFloorRect = {
-        top: kitchenFloor.getBoundingClientRect().top,
-        left: kitchenFloor.getBoundingClientRect().left,
-        right: kitchenFloor.getBoundingClientRect().right,
-        bottom: kitchenFloor.getBoundingClientRect().bottom,
-        } 
-
-    if(feetRect.right > kitchenFloorRect.right || feetRect.left < kitchenFloorRect.left || feetRect.top < kitchenFloorRect.top || feetRect.bottom > kitchenFloorRect.bottom){
-        console.log("floor collision");
-        console.log("collision floorRect ", kitchenFloorRect);
-        console.log("collision feetRect " , feetRect);
-        newFeetJS.style.width = feet.clientWidth + "px";
-            newFeetJS.style.height = feet.clientHeight + "px";
-            newFeetJS.style.left = newFeetX + "px";
-            newFeetJS.style.top = newFeetY + "px";
-        return true; // Collision detected
-    }
     return false; // No collision
 }
 
-const feetJS = document.getElementById("feetJS");
-const newFeetJS = document.getElementById("newFeetJS");
 
 document.addEventListener("keydown", function (event) {
     console.log(event);
@@ -147,28 +132,27 @@ document.addEventListener("keydown", function (event) {
     let newY = y; // New potential Y position. CSS top
     let newFeetX = newX + (5 * scaleSize);
     let newFeetY = newY + (30 * scaleSize); //note: here its in CSS positioning
-
     //left
-    if (event.key == "a") {
+    if (event.code == "ArrowLeft") {
         newX -= speed;
         character_spritesheet.classList.add("face-left", "animate_spritesheet")
         //plate.classList.add("animate_plate")
         newFeetX -= speed;
     }
     //up
-    else if (event.key == "w") {
+    else if (event.code == "ArrowUp") {
         newY -= speed;
         character_spritesheet.classList.add("face-back", "animate_spritesheet")
         newFeetY -= speed;
     }
     //right
-    else if (event.key == "d") {
+    else if (event.code == "ArrowRight") {
         newX += speed;
         character_spritesheet.classList.add("face-right", "animate_spritesheet")
         newFeetX += speed; 
     }
     //down
-    else if (event.key == "s") {
+    else if (event.code == "ArrowDown") {
         newY += speed;
         character_spritesheet.classList.add("animate_spritesheet")
         newFeetY += speed;
@@ -184,8 +168,6 @@ document.addEventListener("keydown", function (event) {
         y = newY;
         character.style.left = x + "px";
         character.style.top = y + "px";
-        feetJS.style.left = newFeetX + "px";
-        feetJS.style.top = newFeetY + "px";
     }
 
 })
@@ -193,20 +175,20 @@ document.addEventListener("keydown", function (event) {
 document.addEventListener('keyup', function (event) {
     console.log(event)
     //left
-    if (event.key == "a") {
+    if (event.code == "ArrowLeft") {
         character_spritesheet.classList.remove("face-left", "animate_spritesheet")
         plate.classList.remove("animate_plate")
     }
     //up
-    else if (event.key == "w") {
+    else if (event.code == "ArrowUp") {
         character_spritesheet.classList.remove("face-back", "animate_spritesheet")
     }
     //right
-    else if (event.key == "d") {
+    else if (event.code == "ArrowRight") {
         character_spritesheet.classList.remove("face-right", "animate_spritesheet")
     }
     //down
-    else if (event.key == "s") {
+    else if (event.code == "ArrowDown") {
         character_spritesheet.classList.remove("animate_spritesheet")
     }
 

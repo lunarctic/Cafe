@@ -1,5 +1,5 @@
 :root {
-    --pixel-size: 4;
+    --pixel-size: 1;
 }
 
 body {
@@ -13,7 +13,7 @@ body {
     width: calc(32px * var(--pixel-size));
     height: calc(33px * var(--pixel-size));
     overflow: hidden;
-    position: relative;
+    position: absolute;
     z-index: 9999;
 }
 
@@ -54,13 +54,14 @@ body {
     top: calc(-96px * var(--pixel-size));
 }
 
+/*
 #plate {
     width: calc(13px * var(--pixel-size));
     z-index: 12323;
     position: absolute;
     top: calc(17px * var(--pixel-size));
     left: calc(1px * var(--pixel-size));
-}
+} 
 
 .animate_plate {
     animation: movePlateRight 2s steps(3) infinite;
@@ -74,7 +75,7 @@ body {
     to {
         transform: translate3d(10%, 0, 0);
     }
-}
+} */
 
 #feet {
     background-color: rgba(0, 255, 0, 0.3);
@@ -117,7 +118,7 @@ body {
 
 #counter {
     position: absolute;
-    z-index: 99999;
+    z-index: 99999999;
     left: 50%;
     /* Place at the horizontal center */
     transform: translateX(-50%);
@@ -135,3 +136,19 @@ body {
     /* Adjust to center horizontally */
 }
 
+#fireplace{
+    bottom: 0;
+    left: 0;
+}
+
+#feetJS {
+    position: absolute;
+    z-index: 9999;
+    background-color: blue;
+}
+
+#newFeetJS{
+    position: absolute;
+    z-index: 99999;
+    background-color: red;
+}

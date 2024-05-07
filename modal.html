@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* popup for help */
+        /* the modal (overlay background) */
+        .modal {
+            display: none;
+            /* hidden by default */
+            position: fixed;
+            /* stay in place */
+            z-index: 10;
+            /* sit on top */
+            left: 0;
+            /* positioning */
+            top: 0;
+            /*positioning */
+            width: 100%;
+            /* full width */
+            height: 100%;
+            /* full height */
+            overflow: auto;
+            /* enable scroll if needed */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* to have a darkened background*/
+        }
+
+        /* to make the modal visible */
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* modal content/box */
+        .modal-content {
+            background-color: #c5ebc2;
+            color: #33ae6c;
+            text-shadow: 2px 1px 3px #a0cda0;
+            font-family: 'Mooli', sans-serif;
+            padding: 30px;
+            border: 10px solid #128347;
+            border-radius: 10px;
+            width: 60%;
+            height: 40%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .modal-content p {
+            margin: auto;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .modal-content p:first-of-type {
+            color: #128347;
+            text-shadow: none;
+            font-weight: bold;
+            font-size: 40px;
+            text-shadow: 2px 1px 5px #247a25;
+        }
+
+        /* the close button */
+        #close {
+            color: #c5ebc2;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            font-size: 40px;
+            background-color: #128347;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-shadow: none;
+            text-align: center;
+            line-height: 35px;
+        }
+
+        #close:hover,
+        #close:focus {
+            color: #a0cda0;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span id="close">&times;</span>
+            <div>
+                <p> Help </p>
+                <br>
+                <p>Click continue to move on to the next scene. When you come to a scene where you have to make a
+                    choice, choose one of the options to continue. If you want to return to the main page at any point,
+                    you can either click on the arrow to the right, on the home like on the nav bar or the TFF logo.
+
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
