@@ -97,12 +97,12 @@ body {
     z-index: 9;
 }
 
-/*
+
 #kitchenSet{
-    top: calc(12px * var(--pixel-size));
-    left: 500px;
+    top: 0;
 }
 
+/*
 #stove{
     top: calc(12px * var(--pixel-size));
     left: 432px;
@@ -156,28 +156,28 @@ body {
 #fridgeBtn{
     background-color: white;
     border: 2px solid black;
-    border-radius: 20%;
+    border-radius: 20px;
     width: fit-content;
-    padding: 10px;
+    padding: 5px 20px 5px 20px;
     display: none;
+    z-index: 9;
 }
 
 #fridgeBtn.show{
     display: flex;
     position: absolute;
-    top: 0;
+    top: -42px;
     left: 0;
 }
 
 #fridgeContainer{
-    background-color: red;
     position: absolute;
 }
 
 
 /* popup for help */
         /* the modal (overlay background) */
-        #modal {
+        #fridgeModal {
             display: none;
             /* hidden by default */
             position: fixed;
@@ -199,7 +199,7 @@ body {
         }
 
         /* to make the modal visible */
-        #modal.show {
+        #fridgeModal.show {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -219,6 +219,8 @@ body {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
             grid-template-rows: 1fr 1fr 1fr 1fr;
+            align-items: center;
+            justify-items: center;
             /* z-index: 99999; */
         }
 
@@ -229,8 +231,8 @@ body {
             font-size: 28px;
             font-weight: bold;
             position: absolute;
-            right: -90px;
-            top: -40px;
+            right: 0px;
+            top: 0px;
             font-size: 40px;
             width: 40px;
             height: 40px;

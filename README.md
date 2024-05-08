@@ -2,10 +2,8 @@
 
 TO DO
 -need to edit the fridge bc the top is too big compared to the rest of the kitchen
--check why there is a gap between feet and furniture
-    -on the left side of the counter there is a bigger gap for some reason
-    update: i tried fixing it and now the char doesnt move at all
 -whats the difference between + and , in console.log and which one do we use?
+-add a painting next to the fridge so it doesnt look so empty
 
 IDEAS
 -go shopping for food (i dont think i have time for this)

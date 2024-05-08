@@ -12,7 +12,8 @@ const kitchen = document.getElementById("kitchen");
 const kitchenSet = document.getElementById("kitchenSet");
 const fridge = document.getElementById("fridge");
 const fridgeContainer = document.getElementById("fridgeContainer");
-const stove = document.getElementById("stove");
+const oven = document.getElementById("oven");
+const ovenContainer = document.getElementById("ovenContainer");
 
 const scaleSize = 4; //for feet, because maybe i'll want to give the character a different size
 const pixelSize = 4; // Scaling factor
@@ -31,6 +32,8 @@ function scaleFurniture() {
 
     fridgeContainer.style.width = fridge.width + (13 * pixelSize * 1.4) + "px";
     fridgeContainer.style.height = fridge.height + "px";
+    ovenContainer.style.width = oven.width + "px";
+    ovenContainer.style.height = oven.height + "px";
 
 
     //have to do the counter seperately because it doesn't have the furniture ID
@@ -57,16 +60,16 @@ function putWalls() {
 
 // Positioning
 function positioningFurniture() {
-    stove.style.left = 0 + "px"; //can do this in CSS?
-    kitchenSet.style.left = stove.clientWidth + "px";
+    ovenContainer.style.left = 0 + "px"; //can do this in CSS?
+    kitchenSet.style.left = ovenContainer.clientWidth + "px";
     // console.log("kitchenset left: " + kitchenSet.style.left);
-    fridgeContainer.style.left = stove.clientWidth + kitchenSet.clientWidth + "px";
+    fridgeContainer.style.left = ovenContainer.clientWidth + kitchenSet.clientWidth + "px";
     kitchen.style.top = 9 * pixelSize + "px";
     counter.style.top = 33 * pixelSize + "px";
     kitchenFloor.style.top = 48 * pixelSize + "px";
     // console.log("kitchen top: " + kitchen.style.top);
     fridgeContainer.style.top = 6 * pixelSize + "px";
-    kitchen.style.width = stove.clientWidth + kitchenSet.clientWidth + fridgeContainer.clientWidth + "px"; // to be able to center the kitchen
+    kitchen.style.width = ovenContainer.clientWidth + kitchenSet.clientWidth + fridgeContainer.clientWidth + "px"; // to be able to center the kitchen
 }
 
 scaleFurniture();
@@ -192,7 +195,7 @@ document.addEventListener("keydown", function (event) {
         character.style.top = y + "px";
         feetJS.style.left = newFeetX + "px";
         feetJS.style.top = newFeetY + "px";
-        checkFridgeBtn()
+        checkButtons()
     }
 
 })
@@ -222,14 +225,14 @@ document.addEventListener('keyup', function (event) {
 
 
 // henter modal
-const modal = document.getElementById("modal");
+const fridgeModal = document.getElementById("fridgeModal");
 // henter button som åpner modal
 const fridgeBtn = document.getElementById("fridgeBtn");
 // henter <span> elementet som lukker modal (close button)
 const closeBtn = document.getElementById("close");
 
 //checking the character's distance to the fridge. if the character is standing in front of the fridge, the "open fridge" button will show
-function checkFridgeBtn(){
+function checkButtons(){
     const fridgeRect = {
         top: fridge.getBoundingClientRect().top,
         left: fridge.getBoundingClientRect().left,
@@ -244,7 +247,14 @@ function checkFridgeBtn(){
         bottom: feet.getBoundingClientRect().bottom,
     };
 
-    if(feetRect.top <= fridgeRect.bottom + 20 && feetRect.left >= fridgeRect.left - 20 && feetRect.right <= fridgeRect.right + 20 ){
+    const ovenRect = { 
+        top: oven.getBoundingClientRect().top,
+        left: oven.getBoundingClientRect().left,
+        right: oven.getBoundingClientRect().right,
+        bottom: oven.getBoundingClientRect().bottom,
+    };
+
+    if(feetRect.top <= fridgeRect.bottom + 30 && feetRect.left >= fridgeRect.left - 25 && feetRect.right <= fridgeRect.right + 25 ){
         fridgeBtn.classList.add("show");
        } else{
         fridgeBtn.classList.remove("show");
@@ -255,20 +265,20 @@ function checkFridgeBtn(){
 fridgeBtn.onclick = function() {
     fridge.src = "img/furniture/openfridge.png";
     fridge.style.width = fridge.clientWidth + (13 * pixelSize * 1.4) + "px";
-  modal.classList.add("show");
+    fridgeModal.classList.add("show");
 }
 
 // lukker modal når man trykker på close (x). fjerner class som gjør at den vises
 closeBtn.onclick = function() {
-  modal.classList.remove("show");
+    fridgeModal.classList.remove("show");
   fridge.src = "img/furniture/fridge181.png";
   fridge.style.width = fridge.clientWidth - (13 * pixelSize * 1.4) + "px";
 }
 
 // hvis man trykker på et sted annet enn modal lukkes modal. fjerner class som gjør at den vises
 window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.classList.remove("show");
+  if (event.target == fridgeModal) {
+    fridgeModal.classList.remove("show");
     fridge.src = "img/furniture/fridge181.png";
     fridge.style.width = fridge.clientWidth - (13 * pixelSize * 1.4) + "px";
   }
