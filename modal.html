@@ -39,9 +39,6 @@
         /* modal content/box */
         .modal-content {
             background-color: #c5ebc2;
-            color: #33ae6c;
-            text-shadow: 2px 1px 3px #a0cda0;
-            font-family: 'Mooli', sans-serif;
             padding: 30px;
             border: 10px solid #128347;
             border-radius: 10px;
@@ -53,20 +50,6 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-        }
-
-        .modal-content p {
-            margin: auto;
-            font-size: 20px;
-            font-weight: bold;
-        }
-
-        .modal-content p:first-of-type {
-            color: #128347;
-            text-shadow: none;
-            font-weight: bold;
-            font-size: 40px;
-            text-shadow: 2px 1px 5px #247a25;
         }
 
         /* the close button */
@@ -97,6 +80,8 @@
 </head>
 
 <body>
+
+    <button id="myBtn"> Click me</button>
     <!-- The Modal -->
     <div id="myModal" class="modal">
 
@@ -114,6 +99,7 @@
             </div>
         </div>
     </div>
+    <script src="modal.js"></script>
 </body>
 
 </html>

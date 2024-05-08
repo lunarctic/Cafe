@@ -78,7 +78,7 @@ const kitchenFloorRect = {
 }
 
 let x = 600; // Initial character X position
-let y = 50; // Initial character Y position
+let y = 150; // Initial character Y position
 let speed = 8; // Character movement speed
 character.style.left = x + "px";
 character.style.top = y + "px";

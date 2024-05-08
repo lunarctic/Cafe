@@ -1,5 +1,5 @@
 :root {
-    --pixel-size: 1;
+    --pixel-size: 4;
 }
 
 body {
@@ -14,7 +14,7 @@ body {
     height: calc(33px * var(--pixel-size));
     overflow: hidden;
     position: absolute;
-    z-index: 9999;
+    z-index: 99;
 }
 
 .animate_spritesheet {
@@ -94,7 +94,7 @@ body {
 
 #furniture img {
     position: absolute;
-    z-index: 222;
+    z-index: 9;
 }
 
 /*
@@ -118,7 +118,7 @@ body {
 
 #counter {
     position: absolute;
-    z-index: 99999999;
+    z-index: 999;
     left: 50%;
     /* Place at the horizontal center */
     transform: translateX(-50%);
@@ -152,3 +152,83 @@ body {
     z-index: 99999;
     background-color: red;
 }
+
+#fridgeBtn{
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 20%;
+    width: fit-content;
+    padding: 10px;
+}
+
+/* popup for help */
+        /* the modal (overlay background) */
+        #modal {
+            display: none;
+            /* hidden by default */
+            position: fixed;
+            /* stay in place */
+            z-index: 999999;
+            /* sit on top */
+            left: 0;
+            /* positioning */
+            top: 0;
+            /*positioning */
+            width: 100%;
+            /* full width */
+            height: 100%;
+            /* full height */
+            overflow: auto;
+            /* enable scroll if needed */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* to have a darkened background*/
+        }
+
+        /* to make the modal visible */
+        #modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* modal content/box */
+        .modalContent {
+            background-color: #c5ebc2;
+            padding: 30px;
+            border: 10px solid #128347;
+            border-radius: 10px;
+            width: 60%;
+            height: 40%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            /* z-index: 99999; */
+        }
+
+        /* the close button */
+        #close {
+            color: #c5ebc2;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            font-size: 40px;
+            background-color: #128347;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-shadow: none;
+            text-align: center;
+            line-height: 35px;
+        }
+
+        #close:hover,
+        #close:focus {
+            color: #a0cda0;
+            text-decoration: none;
+            cursor: pointer;
+        }

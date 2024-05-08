@@ -13,8 +13,8 @@ const kitchenSet = document.getElementById("kitchenSet");
 const fridge = document.getElementById("fridge");
 const stove = document.getElementById("stove");
 
-const scaleSize = 1; //for feet, because maybe i'll want to give the character a different size
-const pixelSize = 1; // Scaling factor
+const scaleSize = 4; //for feet, because maybe i'll want to give the character a different size
+const pixelSize = 4; // Scaling factor
 
 function scaleFurniture() {
     // Scale the furniture sizes
@@ -212,3 +212,27 @@ document.addEventListener('keyup', function (event) {
 
 })
 
+
+// henter modal
+const modal = document.getElementById("modal");
+// henter button som åpner modal
+const fridgeBtn = document.getElementById("fridgeBtn");
+// henter <span> elementet som lukker modal (close button)
+const span = document.getElementById("close");
+
+// åpner modal når man trykker på button. legger til class som gjør at den vises 
+fridgeBtn.onclick = function() {
+  modal.classList.add("show");
+}
+
+// lukker modal når man trykker på close (x). fjerner class som gjør at den vises
+span.onclick = function() {
+  modal.classList.remove("show");
+}
+
+// hvis man trykker på et sted annet enn modal lukkes modal. fjerner class som gjør at den vises
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.classList.remove("show");
+  }
+}
