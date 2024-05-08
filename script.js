@@ -11,6 +11,7 @@ const kitchenFloor = document.getElementById("kitchen_floor");
 const kitchen = document.getElementById("kitchen");
 const kitchenSet = document.getElementById("kitchenSet");
 const fridge = document.getElementById("fridge");
+const fridgeContainer = document.getElementById("fridgeContainer");
 const stove = document.getElementById("stove");
 
 const scaleSize = 4; //for feet, because maybe i'll want to give the character a different size
@@ -222,6 +223,7 @@ const span = document.getElementById("close");
 
 // åpner modal når man trykker på button. legger til class som gjør at den vises 
 fridgeBtn.onclick = function() {
+    fridge.src = "img/furniture/openfridge.png";
   modal.classList.add("show");
 }
 
