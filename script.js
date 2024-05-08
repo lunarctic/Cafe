@@ -192,6 +192,7 @@ document.addEventListener("keydown", function (event) {
         character.style.top = y + "px";
         feetJS.style.left = newFeetX + "px";
         feetJS.style.top = newFeetY + "px";
+        checkFridgeBtn()
     }
 
 })
@@ -219,12 +220,36 @@ document.addEventListener('keyup', function (event) {
 })
 
 
+
 // henter modal
 const modal = document.getElementById("modal");
 // henter button som åpner modal
 const fridgeBtn = document.getElementById("fridgeBtn");
 // henter <span> elementet som lukker modal (close button)
-const span = document.getElementById("close");
+const closeBtn = document.getElementById("close");
+
+//checking the character's distance to the fridge. if the character is standing in front of the fridge, the "open fridge" button will show
+function checkFridgeBtn(){
+    const fridgeRect = {
+        top: fridge.getBoundingClientRect().top,
+        left: fridge.getBoundingClientRect().left,
+        right: fridge.getBoundingClientRect().right,
+        bottom: fridge.getBoundingClientRect().bottom,
+    };
+
+    const feetRect = { 
+        top: feet.getBoundingClientRect().top,
+        left: feet.getBoundingClientRect().left,
+        right: feet.getBoundingClientRect().right,
+        bottom: feet.getBoundingClientRect().bottom,
+    };
+
+    if(feetRect.top <= fridgeRect.bottom + 20 && feetRect.left >= fridgeRect.left - 20 && feetRect.right <= fridgeRect.right + 20 ){
+        fridgeBtn.classList.add("show");
+       } else{
+        fridgeBtn.classList.remove("show");
+       }
+}
 
 // åpner modal når man trykker på button. legger til class som gjør at den vises 
 fridgeBtn.onclick = function() {
@@ -234,7 +259,7 @@ fridgeBtn.onclick = function() {
 }
 
 // lukker modal når man trykker på close (x). fjerner class som gjør at den vises
-span.onclick = function() {
+closeBtn.onclick = function() {
   modal.classList.remove("show");
   fridge.src = "img/furniture/fridge181.png";
   fridge.style.width = fridge.clientWidth - (13 * pixelSize * 1.4) + "px";
@@ -248,3 +273,4 @@ window.onclick = function(event) {
     fridge.style.width = fridge.clientWidth - (13 * pixelSize * 1.4) + "px";
   }
 }
+
