@@ -161,6 +161,11 @@ body {
     padding: 10px;
 }
 
+#fridgeContainer{
+    background-color: red;
+    position: absolute;
+}
+
 /* popup for help */
         /* the modal (overlay background) */
         #modal {

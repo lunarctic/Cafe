@@ -28,6 +28,11 @@ function scaleFurniture() {
         // console.log("new width = " + (originalWidth * pixelSize));
         furniture.style.width = originalWidth * pixelSize + "px";
     }
+
+    fridgeContainer.style.width = fridge.width + (13 * pixelSize * 1.4) + "px";
+    fridgeContainer.style.height = fridge.height + "px";
+
+
     //have to do the counter seperately because it doesn't have the furniture ID
     counter.style.width = counter.clientWidth * pixelSize + "px";
     //styling the tiled floor
@@ -55,13 +60,13 @@ function positioningFurniture() {
     stove.style.left = 0 + "px"; //can do this in CSS?
     kitchenSet.style.left = stove.clientWidth + "px";
     // console.log("kitchenset left: " + kitchenSet.style.left);
-    fridge.style.left = stove.clientWidth + kitchenSet.clientWidth + "px";
+    fridgeContainer.style.left = stove.clientWidth + kitchenSet.clientWidth + "px";
     kitchen.style.top = 9 * pixelSize + "px";
     counter.style.top = 33 * pixelSize + "px";
     kitchenFloor.style.top = 48 * pixelSize + "px";
     // console.log("kitchen top: " + kitchen.style.top);
-    fridge.style.top = 6 * pixelSize + "px";
-    kitchen.style.width = stove.clientWidth + kitchenSet.clientWidth + fridge.clientWidth + "px"; // to be able to center the kitchen
+    fridgeContainer.style.top = 6 * pixelSize + "px";
+    kitchen.style.width = stove.clientWidth + kitchenSet.clientWidth + fridgeContainer.clientWidth + "px"; // to be able to center the kitchen
 }
 
 scaleFurniture();
@@ -224,17 +229,22 @@ const span = document.getElementById("close");
 // åpner modal når man trykker på button. legger til class som gjør at den vises 
 fridgeBtn.onclick = function() {
     fridge.src = "img/furniture/openfridge.png";
+    fridge.style.width = fridge.clientWidth + (13 * pixelSize * 1.4) + "px";
   modal.classList.add("show");
 }
 
 // lukker modal når man trykker på close (x). fjerner class som gjør at den vises
 span.onclick = function() {
   modal.classList.remove("show");
+  fridge.src = "img/furniture/fridge181.png";
+  fridge.style.width = fridge.clientWidth - (13 * pixelSize * 1.4) + "px";
 }
 
 // hvis man trykker på et sted annet enn modal lukkes modal. fjerner class som gjør at den vises
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.classList.remove("show");
+    fridge.src = "img/furniture/fridge181.png";
+    fridge.style.width = fridge.clientWidth - (13 * pixelSize * 1.4) + "px";
   }
 }
