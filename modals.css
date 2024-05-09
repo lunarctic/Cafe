@@ -37,6 +37,7 @@
     height:45%;
 }
 
+
 #fridgeModal.show, #ovenModal.show{
     display: block;
 }
@@ -67,6 +68,22 @@
     grid-template-rows: 1fr 1fr 1fr;
     align-items: center;
     justify-items: center; 
+    overflow: hidden;  /* Avoid overflow if content is larger */
+    gap: 10px; 
+}
+
+#ovenModal .modalContent div{
+    border: 4px dashed lightslategray;
+    width: 80%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#ovenModal button{
+    background-color: white;
+    color: black;
 }
 
 #fridgeModal .modalContent{
@@ -170,6 +187,15 @@
     display: block;
 }
 
-.food{
+#inventory .food, #fridgeModal .food{
     width: 90%;
+    cursor: pointer;
+    max-height: 100%;  /* Prevent overflowing beyond container height */
+    object-fit: contain;  /* Ensure image scales while maintaining aspect ratio */
+}
+
+#ovenModal .food{
+    height: 90%;
+    cursor: pointer;
+    object-fit: contain;  /* Ensure image scales while maintaining aspect ratio */
 }

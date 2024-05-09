@@ -2,9 +2,13 @@ let foods = ["chocolate", "strawberry" , "chocolate", "strawberry" , "chocolate"
 
 const fridgeContent = document.querySelector("#fridgeModal .modalContent");
 
-const slot1 = document.getElementById("slot1");
-const slot2 = document.getElementById("slot2");
-const slot3 = document.getElementById("slot3");
+const inventorySlot1 = document.getElementById("inventorySlot1");
+const inventorySlot2 = document.getElementById("inventorySlot2");
+const inventorySlot3 = document.getElementById("inventorySlot3");
+
+const ovenSlot1 = document.getElementById("ovenSlot1");
+const ovenSlot2 = document.getElementById("ovenSlot2");
+const ovenSlot3 = document.getElementById("ovenSlot3");
 
 function createFridgeSlots(){
     for (let i = 1; i < 13; i++) {
@@ -16,72 +20,39 @@ function createFridgeSlots(){
         food.classList.add("food");
         food.src = "img/food/" + foods[i-1] + ".png";
         console.log("creating food/slot no" + i);
-        food.addEventListener("click", getFoodFromFridge);
+        food.addEventListener("click", transferFoodToInventory);
 }
 }
 
 createFridgeSlots()
 
-/*
-function getFoodFromFridge(event) {
-    const food = event.target;
-    if (slot1.src == "") {
-        slot1.src = food.src;
-    } else if(slot1.src != "" && slot2.src == ""){
-        slot2.src = food.src;
-    }
-}
-*/
-
-
-function getFoodFromFridge(event) {
+function transferFoodToInventory(event) {
     const food= event.target;
     const foodSrc = getFilename(food.src);
     console.log("food: " + food);
     console.log("src: " + foodSrc);
     
-    const slots = [slot1, slot2, slot3];
+    const inventorySlots = [inventorySlot1, inventorySlot2, inventorySlot3];
     
-    for (let i = 0; i < slots.length; i++) {
-        const slot = slots[i];
+    for (let i = 0; i < inventorySlots.length; i++) {
+        const inventorySlot = inventorySlots[i];
         
         // If the slot is empty, assign the food source and add an event listener
-        if (!slot.src || slot.src === "") {
-            console.log(`Condition activated for slot${i + 1}`);
-            slot.src = "img/food/" + foodSrc;
-            console.log(`slot${i + 1} src:`, slot.src);
-            slot.addEventListener("click", putFoodBack);
-    
+        if (!inventorySlot.src || inventorySlot.src === "") {
+            console.log(`Condition activated for inventorySlot${i + 1}`);
+            inventorySlot.src = "img/food/" + foodSrc;
+            console.log(`inventorySlot${i + 1} src:`, inventorySlot.src);
+            inventorySlot.addEventListener("click", transferFood);
+            if(ovenModal.classList.contains("show") && !food.parentNode.classList.contains("inventorySlot")){
+                //if the food is being transferred from the oven to the inventory
+                food.removeAttribute("src");
+            }
             // Exit the loop once a slot is filled
             break;
         }
     }
 }
 
-/*
-function getFoodFromFridge(event) {
-    const food= event.target;
-    const foodSrc = getFilename(food.src);
-    console.log("food: " + food);
-    console.log("src: " + foodSrc);
-    
-    
-    if (!slot1.src || slot1.src === "") {
-        console.log("first condition activated");
-        slot1.src = "img/food/" + foodSrc;
-        console.log("slot1 src:", slot1.src);
-        slot1.addEventListener("click", putFoodBack);
-    } else if (!slot2.src || slot2.src === "") {
-        console.log("second condition activated");
-        slot2.src = "img/food/" + foodSrc;
-        slot2.addEventListener("click", putFoodBack);
-    } else if (!slot3.src || slot3.src === "") {
-        console.log("third condition activated");
-        slot3.src = "img/food/" + foodSrc;
-        slot3.addEventListener("click", putFoodBack);
-    }
-}
-*/
 
 function getFilename(src) {
     // This extracts the filename from the src URL
@@ -89,7 +60,38 @@ function getFilename(src) {
     return parts.pop(); // Gets the last part (the filename)
 }
 
-function putFoodBack(event){
-    const foodToPutBack= event.target;
-    foodToPutBack.src = "";
+function transferFood(event){
+    const foodToTransfer= event.target;
+    if (fridgeModal.classList.contains("show")) {
+        //if the food is being transferred back to the fridge, just delete the food from the inventory
+        foodToTransfer.removeAttribute("src");
+    } else if (ovenModal.classList.contains("show") && foodToTransfer.parentNode.classList.contains("inventorySlot")) {
+        //if the food is being transferred to the oven, copy the food into the oven before deleting it from the inventory
+        putFoodInOven(foodToTransfer);
+        foodToTransfer.removeAttribute("src");
+    } 
+    // If the fridge modal is not open, do nothing
+    return;
+}
+
+function putFoodInOven(event){
+    const food = event;
+    const foodSrc = getFilename(food.src);
+    console.log("src: " + foodSrc)
+    const ovenSlots = [ovenSlot1, ovenSlot2, ovenSlot3];
+    
+    for (let i = 0; i < ovenSlots.length; i++) {
+        const ovenSlot = ovenSlots[i];
+        
+        // If the slot is empty, assign the food source and add an event listener
+        if (!ovenSlot.src || ovenSlot.src === "") {
+            console.log(`Condition activated for ovenSlot${i + 1}`);
+            ovenSlot.src = "img/food/" + foodSrc;
+            console.log(`ovenSlot${i + 1} src:`, ovenSlot.src);
+            ovenSlot.addEventListener("click", transferFoodToInventory);
+
+            // Exit the loop once a slot is filled
+            break;
+        }
+    }
 }

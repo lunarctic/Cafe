@@ -76,26 +76,26 @@ document.addEventListener("keydown", function (event) {
     let newFeetY = newY + (30 * feetScaleSize); 
 
     //left
-    if (event.key == "a") {
+    if (event.key == "a" || event.key == "A") {
         newX -= speed;
         character_spritesheet.classList.add("face-left", "animate_spritesheet")
         //plate.classList.add("animate_plate")
         newFeetX -= speed;
     }
     //up
-    else if (event.key == "w") {
+    else if (event.key == "w" || event.key == "W") {
         newY -= speed;
         character_spritesheet.classList.add("face-back", "animate_spritesheet")
         newFeetY -= speed;
     }
     //right
-    else if (event.key == "d") {
+    else if (event.key == "d" || event.key == "D") {
         newX += speed;
         character_spritesheet.classList.add("face-right", "animate_spritesheet")
         newFeetX += speed; 
     }
     //down
-    else if (event.key == "s") {
+    else if (event.key == "s" || event.key == "S") {
         newY += speed;
         character_spritesheet.classList.add("animate_spritesheet")
         newFeetY += speed;
@@ -118,19 +118,19 @@ document.addEventListener("keydown", function (event) {
 document.addEventListener('keyup', function (event) {
     console.log(event)
     //left
-    if (event.key == "a") {
+    if (event.key == "a" || event.key == "A") {
         character_spritesheet.classList.remove("face-left", "animate_spritesheet")
     }
     //up
-    else if (event.key == "w") {
+    else if (event.key == "w" || event.key == "W") {
         character_spritesheet.classList.remove("face-back", "animate_spritesheet")
     }
     //right
-    else if (event.key == "d") {
+    else if (event.key == "d" || event.key == "D") {
         character_spritesheet.classList.remove("face-right", "animate_spritesheet")
     }
     //down
-    else if (event.key == "s") {
+    else if (event.key == "s" || event.key == "S") {
         character_spritesheet.classList.remove("animate_spritesheet")
     }
 
