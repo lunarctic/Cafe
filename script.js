@@ -222,14 +222,15 @@ document.addEventListener('keyup', function (event) {
 
 })
 
-
-
 // henter modal
 const fridgeModal = document.getElementById("fridgeModal");
 // henter button som åpner modal
 const fridgeBtn = document.getElementById("fridgeBtn");
 // henter <span> elementet som lukker modal (close button)
 const closeBtn = document.getElementById("close");
+
+const ovenModal = document.getElementById("ovenModal");
+const ovenBtn = document.getElementById("ovenBtn");
 
 //checking the character's distance to the fridge. if the character is standing in front of the fridge, the "open fridge" button will show
 function checkButtons(){
@@ -256,9 +257,13 @@ function checkButtons(){
 
     if(feetRect.top <= fridgeRect.bottom + 30 && feetRect.left >= fridgeRect.left - 25 && feetRect.right <= fridgeRect.right + 25 ){
         fridgeBtn.classList.add("show");
+       } else if(feetRect.top <= ovenRect.bottom + 30 && feetRect.left >= ovenRect.left - 25 && feetRect.right <= ovenRect.right + 25 ){
+        ovenBtn.classList.add("show");
        } else{
         fridgeBtn.classList.remove("show");
+        ovenBtn.classList.remove("show");
        }
+
 }
 
 // åpner modal når man trykker på button. legger til class som gjør at den vises 
@@ -266,6 +271,10 @@ fridgeBtn.onclick = function() {
     fridge.src = "img/furniture/openfridge.png";
     fridge.style.width = fridge.clientWidth + (13 * pixelSize * 1.4) + "px";
     fridgeModal.classList.add("show");
+}
+
+ovenBtn.onclick = function() {
+    ovenModal.classList.add("show");
 }
 
 // lukker modal når man trykker på close (x). fjerner class som gjør at den vises
@@ -283,4 +292,10 @@ window.onclick = function(event) {
     fridge.style.width = fridge.clientWidth - (13 * pixelSize * 1.4) + "px";
   }
 }
+
+window.onclick = function(event) {
+    if (event.target == ovenModal) {
+      ovenModal.classList.remove("show");
+    }
+  }
 
