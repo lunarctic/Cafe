@@ -153,43 +153,26 @@ body {
     background-color: red;
 }
 
-#fridgeBtn , #ovenBtn{
-    background-color: white;
-    border: 2px solid black;
-    border-radius: 20px;
-    width: fit-content;
-    padding: 5px 20px 5px 20px;
-    display: none;
-    z-index: 9;
-}
-
-#fridgeBtn.show , #ovenBtn.show{
-    display: flex;
-    position: absolute;
-    top: -42px;
-    left: 0;
-}
-
 #fridgeContainer, #ovenContainer{
     position: absolute;
 }
 
 /* popup for help */
 /* the modal (overlay background) */
-#fridgeModal, #ovenModal {
+.modal {
     display: none; /* hidden by default */
     position: fixed; /* stay in place */
-    z-index: 999999; /* sit on top */
-    left: 0; /* positioning */
-    top: 0; /*positioning */
-    width: 100%; /* full width */
-    height: 100%; /* full height */
+    z-index: 999999;
+    left: 0; 
+    top: 0;
+    width: 100%; 
+    height: 100%; 
     overflow: auto; /* enable scroll if needed */
     background-color: rgba(0, 0, 0, 0.4); /* to have a darkened background*/
 }
 
 /* to make the modal visible */
-#fridgeModal.show, #ovenModal.show{
+.modal.show{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -218,8 +201,34 @@ body {
     justify-items: center; 
 }
 
+.openBtn{
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 20px;
+    width: fit-content;
+    padding: 5px 20px 5px 20px;
+    display: none;
+    z-index: 999999999;
+    position: absolute;
+    cursor: pointer;
+}
+
+#fridgeBtn{
+    top: -42px;
+    left: 0;
+}
+
+#ovenBtn{
+    top: 90px;
+    left: 0;
+}
+
+.openBtn.show{
+    display: flex;
+}
+
 /* the close button */
-#close {
+.close {
     color: white;
     background-color: red;
     font-size: 28px;
@@ -234,7 +243,7 @@ body {
     text-align: center;
 }
 
-#close:hover, #close:focus {
+.close:hover, .close:focus {
     color: #dbdbdb;
     text-decoration: none;
     cursor: pointer;
