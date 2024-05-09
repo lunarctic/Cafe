@@ -82,8 +82,9 @@
 }
 
 #ovenModal button{
-    background-color: white;
-    color: black;
+    cursor: pointer;
+    color: greenyellow;
+    z-index: 88888888;
 }
 
 #fridgeModal .modalContent{

@@ -35,7 +35,9 @@ function checkButtons(){
     if(feetRect.top <= fridgeRect.bottom + 40 && feetRect.left >= fridgeRect.left - 25 && feetRect.right <= fridgeRect.right + 25 ){
         fridgeBtn.classList.add("show");
        } else if(feetRect.top <= ovenRect.bottom + 40 && feetRect.left >= ovenRect.left - 25 && feetRect.right <= ovenRect.right + 90 ){
-        ovenBtn.classList.add("show");
+        if (ovenIsOn === false){
+            ovenBtn.classList.add("show");
+        }
        } else{
         fridgeBtn.classList.remove("show");
         ovenBtn.classList.remove("show");

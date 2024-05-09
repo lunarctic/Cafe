@@ -1,0 +1,11 @@
+#timer{
+    display: none;
+    background-color: white;
+    width: 20px;
+    height: 10px;
+    color: blue;
+}
+
+#timer.show{
+    display: block;
+}
