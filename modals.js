@@ -5,6 +5,7 @@ const fridgeBtn = document.getElementById("fridgeBtn");
 // henter <span> elementet som lukker modal (close button)
 const ovenModal = document.getElementById("ovenModal");
 const ovenBtn = document.getElementById("ovenBtn");
+const myModal = document.getElementById("modal");
 
 const inventory = document.getElementById("inventory");
 
@@ -44,15 +45,17 @@ function checkButtons(){
 function toggleModal(modal, opened) {
     if (opened) {
         modal.classList.add("show");
+        myModal.classList.add("show");
         inventory.classList.add("show");
     } else {
         modal.classList.remove("show");
+        myModal.classList.remove("show");
+        inventory.classList.remove("show");
     }
 }
 
 fridgeBtn.onclick = () => {
-    fridge.src = "img/furniture/openfridge.png";
-    fridge.style.width = fridge.clientWidth + (13 * scaleSize * 1.4) + "px";
+    openFridge(true);
     toggleModal(fridgeModal, true);
 };
 
@@ -63,18 +66,30 @@ ovenBtn.onclick = () => {
 const closeBtns = document.querySelectorAll(".close");
 for(const closeBtn of closeBtns){
     closeBtn.onclick = () => {
-        const modal = closeBtn.closest(".modal");
-        if(closeBtn.closest(".modal").id === "fridgeModal"){
-            fridge.src = "img/furniture/fridge181.png";
-            fridge.style.width = fridge.clientWidth - (13 * scaleSize * 1.4) + "px";
+        if(closeBtn.parentNode.id === "fridgeModal"){
+            openFridge(false)
         }
-        toggleModal(modal, false);
+        toggleModal(ovenModal, false);
+        toggleModal(fridgeModal, false);
+    }
+}
+
+function openFridge(open){
+    if(open){
+        fridge.src = "img/furniture/openfridge.png";
+        fridge.style.width = fridge.clientWidth + (13 * scaleSize * 1.4) + "px";
+    } else{
+        fridge.src = "img/furniture/fridge181.png";
+        fridge.style.width = fridge.clientWidth - (13 * scaleSize * 1.4) + "px";
     }
 }
 
 window.onclick = (event) => {
-    if (event.target.classList.contains("modal")) {
-        toggleModal(event.target, false);
+    if (event.target === myModal) {
+        if (fridgeModal.classList.contains("show")) {
+            openFridge(false); // Closing the fridge if it was the fridge modal that was open
+        }
+        toggleModal(ovenModal, false);
+        toggleModal(fridgeModal, false);
     }
 };
-

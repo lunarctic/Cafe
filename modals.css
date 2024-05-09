@@ -1,6 +1,13 @@
+/*Minimal reset*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
 /* popup for help */
 /* the modal (overlay background) */
-.modal {
+#modal {
     display: none; /* hidden by default */
     position: fixed; /* stay in place */
     z-index: 666666;
@@ -12,26 +19,54 @@
     background-color: rgba(0, 0, 0, 0.4); /* to have a darkened background*/
 }
 
+#fridgeModal, #ovenModal{
+    display: none;
+    grid-column: 1/2;
+    position: relative;
+    right: 0;
+    justify-self: end;
+}
+
+#fridgeModal{
+    width: 40%;
+    height: 65%;
+}
+
+#ovenModal{
+    width: 50%;
+    height:45%;
+}
+
+#fridgeModal.show, #ovenModal.show{
+    display: block;
+}
+
 /* to make the modal visible */
-.modal.show{
-    display: flex;
+#modal.show{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
-    justify-content: center;
+    gap: 10%;
 }
 
 /* modal content/box */
 .modalContent {
     background-color: #b9b9b9;
-    width: 15%;
-    height: 60%;
     border: 10px solid #323232;
     position: relative;
-            
-    border-radius: 10px;
-
-    padding: 30px;
-    
     z-index: 7777777;
+    width: 100%;
+    height: 100%;
+
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#ovenModal .modalContent{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center; 
 }
 
 #fridgeModal .modalContent{
@@ -40,6 +75,15 @@
     grid-template-rows: 1fr 1fr 1fr 1fr;
     align-items: center;
     justify-items: center; 
+}
+
+.fridgeSlot{
+    border: 4px dashed gray;
+    width: 80%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .openBtn{
@@ -75,8 +119,8 @@
     font-size: 28px;
     font-weight: bold;
     position: absolute;
-    right: 0px;
-    top: 0px;
+    left: -50px;
+    top: -50px;
     font-size: 40px;
     width: 40px;
     height: 40px;
@@ -92,16 +136,30 @@
 
 #inventory{
     display: none;
+    width: 60%;
+    height: 20%;
+    grid-column: 2/3;
+    justify-self: start;
 }
 
 #inventory .grid{
-    width: 300px;
-    height: 100px;
+    width: 100%;
+    height: 100%;
     background-color: white;
     border: 2px dashed darkslategrey;
-    position: absolute;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+}
+
+#inventory .grid div{
+    border: 4px dashed lightslategray;
+    width: 80%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #inventory h3{
@@ -109,5 +167,9 @@
 }
 
 #inventory.show{
-    display: flex;
+    display: block;
+}
+
+.food{
+    width: 90%;
 }
