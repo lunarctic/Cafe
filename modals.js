@@ -6,6 +6,8 @@ const fridgeBtn = document.getElementById("fridgeBtn");
 const ovenModal = document.getElementById("ovenModal");
 const ovenBtn = document.getElementById("ovenBtn");
 
+const inventory = document.getElementById("inventory");
+
 //checking the character's distance to the fridge/oven. if the character is standing in front of the fridge/oven, the "open" button will show
 function checkButtons(){
     const fridgeRect = {
@@ -42,6 +44,7 @@ function checkButtons(){
 function toggleModal(modal, opened) {
     if (opened) {
         modal.classList.add("show");
+        inventory.classList.add("show");
     } else {
         modal.classList.remove("show");
     }
