@@ -14,7 +14,7 @@ body {
     height: calc(33px * var(--pixel-size));
     overflow: hidden;
     position: absolute;
-    z-index: 99;
+    z-index: 333;
 }
 
 .animate_spritesheet {
@@ -94,7 +94,7 @@ body {
 
 #furniture img {
     position: absolute;
-    z-index: 9;
+    z-index: 1;
 }
 
 
@@ -114,22 +114,36 @@ body {
     /* Place at the horizontal center */
     transform: translateX(-50%);
     /* Adjust to center horizontally */
+    z-index: 22;
 }
 
 #counter {
     position: absolute;
-    z-index: 999;
+    z-index: 1;
     left: 50%;
     /* Place at the horizontal center */
     transform: translateX(-50%);
     /* Adjust to center horizontally */
 }
 
+#counter img{
+    position: absolute;
+}
+
+#counterCenter{
+    position: absolute;
+    left: 50%;
+    /* Place at the horizontal center */
+    transform: translateX(-50%);
+    /* Adjust to center horizontally */
+    z-index: 4444;
+}
+
 #kitchen_floor {
     background-image: url("img/furniture/tiles.png");
     background-repeat: repeat; /* Repeat both horizontally and vertically */
     position: absolute;
-    z-index: -9999;
+    z-index: -999;
     left: 50%;
     /* Place at the horizontal center */
     transform: translateX(-50%);
@@ -143,13 +157,13 @@ body {
 
 #feetJS {
     position: absolute;
-    z-index: 9999;
+    z-index: 4444;
     background-color: blue;
 }
 
 #newFeetJS{
     position: absolute;
-    z-index: 99999;
+    z-index: 55555;
     background-color: red;
 }
 
@@ -162,7 +176,7 @@ body {
 .modal {
     display: none; /* hidden by default */
     position: fixed; /* stay in place */
-    z-index: 999999;
+    z-index: 666666;
     left: 0; 
     top: 0;
     width: 100%; 
@@ -208,7 +222,7 @@ body {
     width: fit-content;
     padding: 5px 20px 5px 20px;
     display: none;
-    z-index: 999999999;
+    z-index: 55555;
     position: absolute;
     cursor: pointer;
 }

@@ -15,6 +15,10 @@ const fridgeContainer = document.getElementById("fridgeContainer");
 const oven = document.getElementById("oven");
 const ovenContainer = document.getElementById("ovenContainer");
 
+const counterRight = document.getElementById("counterRight");
+const counterLeft = document.getElementById("counterLeft");
+const counterCenter = document.getElementById("counterCenter");
+
 const scaleSize = 4; //for feet, because maybe i'll want to give the character a different size
 const pixelSize = 4; // Scaling factor
 
@@ -35,9 +39,13 @@ function scaleFurniture() {
     ovenContainer.style.width = oven.width + "px";
     ovenContainer.style.height = oven.height + "px";
 
-
     //have to do the counter seperately because it doesn't have the furniture ID
-    counter.style.width = counter.clientWidth * pixelSize + "px";
+    counterRight.style.width = counterRight.clientWidth * pixelSize + "px";
+    counterLeft.style.width = counterLeft.clientWidth * pixelSize + "px";
+    counterCenter.style.width = counterCenter.clientWidth * pixelSize + "px";
+    counter.style.width = counterRight.clientWidth + counterLeft.clientWidth + counterCenter.clientWidth + "px";
+    counter.style.height = counterRight.clientHeight + "px";
+
     //styling the tiled floor
     kitchenFloor.style.width = 166 * pixelSize + "px";
     kitchenFloor.style.height = 54 * pixelSize + "px";
@@ -65,11 +73,17 @@ function positioningFurniture() {
     // console.log("kitchenset left: " + kitchenSet.style.left);
     fridgeContainer.style.left = ovenContainer.clientWidth + kitchenSet.clientWidth + "px";
     kitchen.style.top = 9 * pixelSize + "px";
-    counter.style.top = 33 * pixelSize + "px";
     kitchenFloor.style.top = 48 * pixelSize + "px";
     // console.log("kitchen top: " + kitchen.style.top);
     fridgeContainer.style.top = 6 * pixelSize + "px";
     kitchen.style.width = ovenContainer.clientWidth + kitchenSet.clientWidth + fridgeContainer.clientWidth + "px"; // to be able to center the kitchen
+
+    counter.style.top = 33 * pixelSize + "px";
+    counterLeft.style.left = 0;
+    counterRight.style.right = 0;
+    counterCenter.style.top = (33 * pixelSize) + (56 * pixelSize) + "px";
+    
+
 }
 
 scaleFurniture();
@@ -255,7 +269,7 @@ function checkButtons(){
         bottom: oven.getBoundingClientRect().bottom,
     };
 
-    if(feetRect.top <= fridgeRect.bottom + 30 && feetRect.left >= fridgeRect.left - 25 && feetRect.right <= fridgeRect.right + 25 ){
+    if(feetRect.top <= fridgeRect.bottom + 40 && feetRect.left >= fridgeRect.left - 25 && feetRect.right <= fridgeRect.right + 25 ){
         fridgeBtn.classList.add("show");
        } else if(feetRect.top <= ovenRect.bottom + 40 && feetRect.left >= ovenRect.left - 25 && feetRect.right <= ovenRect.right + 90 ){
         ovenBtn.classList.add("show");
