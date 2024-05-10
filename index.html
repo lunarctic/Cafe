@@ -24,7 +24,7 @@
 
     <div id="orderContainer">
         <h3> New Order:</h3>
-            <img src="" alt="" id="order">
+        <img src="" alt="" id="order">
     </div>
 
     <div id="modal">
@@ -91,8 +91,20 @@
         </div>
 
     </div>
-
     <button id="recipeBtn" class="btn">Open Recipe Book </button>
+
+    <div id="scoreTracker">
+        <!-- Level Display -->
+        <h2 id="levelDisplay">Level: 1</h2>
+        <!-- Progress Bar -->
+        <div>
+            <h3> XP: </h3>
+            <div id="levelProgress">
+                <div id="progressBar" style="width: 0;"></div> <!-- Width represents the score -->
+            </div>
+            <h3 id="currentScore"></h3>
+        </div>
+    </div>
 
     <div id="furniture">
         <div id="kitchen">
@@ -142,7 +154,7 @@
     <img src="img/furniture/countersCenter.png" alt="" id="counterCenter">
 
     <div id="deliverySpot">
-        <img src="img/plate2.png" alt="" id="delivery">
+        <img src="img/plate1.png" alt="" id="delivery">
         <button id="putOrderBtn" class="btn">Place</button>
     </div>
 
@@ -151,6 +163,7 @@
     <script src="JS/moveCharacter.js"></script>
     <script src="JS/gettingItems.js"></script>
     <script src="JS/bake.js"></script>
+    <script src="JS/scoreTracker.js"></script>
     <script src="JS/order.js"></script>
 </body>
 

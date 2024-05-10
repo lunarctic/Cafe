@@ -10,7 +10,7 @@ const recipeBtn = document.getElementById("recipeBtn");
 const recipeBook = document.getElementById("recipeBook");
 
 //checking the character's distance to the fridge/oven. if the character is standing in front of the fridge/oven, the "open" button will show
-function checkButtons(){
+function checkButtons() {
     const fridgeRect = {
         top: fridge.getBoundingClientRect().top,
         left: fridge.getBoundingClientRect().left,
@@ -18,44 +18,44 @@ function checkButtons(){
         bottom: fridge.getBoundingClientRect().bottom,
     };
 
-    const feetRect = { 
+    const feetRect = {
         top: feet.getBoundingClientRect().top,
         left: feet.getBoundingClientRect().left,
         right: feet.getBoundingClientRect().right,
         bottom: feet.getBoundingClientRect().bottom,
     };
 
-    const ovenRect = { 
+    const ovenRect = {
         top: oven.getBoundingClientRect().top,
         left: oven.getBoundingClientRect().left,
         right: oven.getBoundingClientRect().right,
         bottom: oven.getBoundingClientRect().bottom,
     };
 
-    const deliverySpotRect = { 
+    const deliverySpotRect = {
         top: deliverySpot.getBoundingClientRect().top,
         left: deliverySpot.getBoundingClientRect().left,
         right: deliverySpot.getBoundingClientRect().right,
         bottom: deliverySpot.getBoundingClientRect().bottom,
     };
 
-    if(feetRect.top <= fridgeRect.bottom + 40 && feetRect.left >= fridgeRect.left - 25 && feetRect.right <= fridgeRect.right + 25 ){
+    if (feetRect.top <= fridgeRect.bottom + 40 && feetRect.left >= fridgeRect.left - 25 && feetRect.right <= fridgeRect.right + 25) {
         fridgeBtn.classList.add("show");
-       } else if(feetRect.top <= ovenRect.bottom + 40 && feetRect.left >= ovenRect.left - 25 && feetRect.right <= ovenRect.right + 90 ){
-        if (ovenIsOn === false){
+    } else if (feetRect.top <= ovenRect.bottom + 40 && feetRect.left >= ovenRect.left - 25 && feetRect.right <= ovenRect.right + 90) {
+        if (ovenIsOn === false) {
             ovenBtn.classList.add("show");
-            if(timer.classList.contains("show")){
+            if (timer.classList.contains("show")) {
                 timer.classList.remove("show");
             }
         }
-       } else if(deliverySpotRect.top + 15 <= feetRect.bottom && feetRect.bottom <= deliverySpotRect.top + 60 && feetRect.left >= deliverySpotRect.left - 30 && feetRect.right <= deliverySpotRect.right + 30 ){
-            putOrderBtn.classList.add("show");
-       }
-       else{
+    } else if (deliverySpotRect.top + 15 <= feetRect.bottom && feetRect.bottom <= deliverySpotRect.top + 60 && feetRect.left >= deliverySpotRect.left - 30 && feetRect.right <= deliverySpotRect.right + 30) {
+        putOrderBtn.classList.add("show");
+    }
+    else {
         fridgeBtn.classList.remove("show");
         ovenBtn.classList.remove("show");
         putOrderBtn.classList.remove("show");
-       }
+    }
 }
 
 function toggleModal(modal, opened, inventoryOpened) {
@@ -63,7 +63,7 @@ function toggleModal(modal, opened, inventoryOpened) {
         modal.classList.add("show");
         myModal.classList.add("show");
         inventory.classList.add("show");
-    } else if(opened && !inventoryOpened){
+    } else if (opened && !inventoryOpened) {
         modal.classList.add("show");
         myModal.classList.add("show");
     }
@@ -92,9 +92,9 @@ recipeBtn.onclick = () => {
 };
 
 const closeBtns = document.querySelectorAll(".close");
-for(const closeBtn of closeBtns){
+for (const closeBtn of closeBtns) {
     closeBtn.onclick = () => {
-        if(closeBtn.parentNode.id === "fridgeModal"){
+        if (closeBtn.parentNode.id === "fridgeModal") {
             openFridge(false)
         }
         toggleModal(ovenModal, false, false);
@@ -103,11 +103,11 @@ for(const closeBtn of closeBtns){
     }
 }
 
-function openFridge(open){
-    if(open){
+function openFridge(open) {
+    if (open) {
         fridge.src = "img/furniture/openfridge.png";
         fridge.style.width = fridge.clientWidth + (13 * scaleSize * 1.4) + "px";
-    } else{
+    } else {
         fridge.src = "img/furniture/fridge181.png";
         fridge.style.width = fridge.clientWidth - (13 * scaleSize * 1.4) + "px";
     }
@@ -125,57 +125,99 @@ window.onclick = (event) => {
 
 const recipes = [
     {
-      name: "chocolate_cake",
-      ingredients: ["strawberry.png", "cake_base.png", "chocolate.png"].sort(), // Always sort ingredients for consistency
+        name: "ChocolateCake",
+        ingredients: ["strawberry.png", "CakeBase.png", "chocolate.png"].sort(), // Always sort ingredients for consistency
     },
     {
-      name: "raspberry_cheesecake_pot",
-      ingredients: ["raspberry.png", "creamcheese.png", "cookies.png"].sort(),
+        name: "RaspberryCheesecakePot",
+        ingredients: ["raspberry.png", "CreamCheese.png", "cookies.png"].sort(),
     },
-    // Add more recipes as needed
-  ];
+    {
+        name: "CarrotCake",
+        ingredients: ["Carrot.png", "Cream.png", "CakeBase.png"].sort(),
+    },
+    {
+        name: "CookiesNCreamPot",
+        ingredients: ["Cream.png", "cookies.png", "chocolate.png"].sort(),
+    },
+    {
+        name: "ChocolateDonut",
+        ingredients: ["chocolate.png", "DonutBase.png", "Cream.png"].sort(),
+    },
+    {
+        name: "StrawberryDonut",
+        ingredients: ["strawberry.png", "DonutBase.png", "Cream.png"].sort(),
+    },
+    {
+        name: "LemonDonut",
+        ingredients: ["lemon.png", "DonutBase.png", "Cream.png"].sort(),
+    },
+    {
+        name: "LemonCheesecake",
+        ingredients: ["lemon.png", "cookies.png", "CreamCheese.png"].sort(),
+    },
+    {
+        name: "LemonBlueberryPot",
+        ingredients: ["lemon.png", "blueberries.png", "cookies.png"].sort(),
+    },
+    {
+        name: "BerryPancakes",
+        ingredients: ["pancakes.png", "blueberries.png", "raspberry.png"].sort(),
+    },
+    {
+        name: "ChocolatePancakes",
+        ingredients: ["pancakes.png", "chocolate.png", "strawberry.png"].sort(),
+    },
+    {
+        name: "CookiesNCreamPancakes",
+        ingredients: ["pancakes.png", "cookies.png", "Cream.png"].sort(),
+    },
+];
 
 
-function makeRecipeBook(){
+function makeRecipeBook() {
     for (const recipe of recipes) {
-       const recipeRow = document.createElement("div");
-       recipeRow.classList.add("recipeRow");
-       const recipeName = document.createElement("h3");
-       recipeName.classList.add("recipeName");
-       const recipeIngredients = document.createElement("div");
-       recipeIngredients.classList.add("recipeIngredients");
-       const recipePicture = document.createElement("img");
-       recipePicture.classList.add("recipePicture");
-       const equalitySign = document.createElement("h3");
-       const plusSign1 = document.createElement("h3");
-       const plusSign2 = document.createElement("h3");
-       const ingredient1 = document.createElement("img");
-       ingredient1.classList.add("ingredient1");
-       const ingredient2 = document.createElement("img");
-       ingredient2.classList.add("ingredient2");
-       const ingredient3 = document.createElement("img");
-       ingredient3.classList.add("ingredient3");
+        const recipeRow = document.createElement("div");
+        recipeRow.classList.add("recipeRow");
+        const recipeName = document.createElement("h3");
+        recipeName.classList.add("recipeName");
+        const recipeIngredients = document.createElement("div");
+        recipeIngredients.classList.add("recipeIngredients");
+        const recipePicture = document.createElement("img");
+        recipePicture.classList.add("recipePicture");
+        const equalitySign = document.createElement("h3");
+        const plusSign1 = document.createElement("h3");
+        const ingredient1 = document.createElement("img");
+        ingredient1.classList.add("ingredient1");
+        const ingredient2 = document.createElement("img");
+        ingredient2.classList.add("ingredient2");
+        recipeBook.appendChild(recipeRow);
+        recipeRow.appendChild(recipeName);
+        recipeRow.appendChild(recipeIngredients);
+        recipeIngredients.appendChild(recipePicture);
+        recipeIngredients.appendChild(equalitySign);
+        recipeIngredients.appendChild(ingredient1);
+        recipeIngredients.appendChild(plusSign1);
+        recipeIngredients.appendChild(ingredient2);
+        if (recipe.ingredients.length > 2) {
+            const ingredient3 = document.createElement("img");
+            ingredient3.classList.add("ingredient3");
+            const plusSign2 = document.createElement("h3");
+            recipeIngredients.appendChild(plusSign2);
+            plusSign2.innerHTML = "+";
+            recipeIngredients.appendChild(ingredient3);
+            ingredient3.src = "img/food/" + recipe.ingredients[2];
+        }
 
-       recipeBook.appendChild(recipeRow);
-       recipeRow.appendChild(recipeName);
-       recipeRow.appendChild(recipeIngredients);
-       recipeIngredients.appendChild(recipePicture);
-       recipeIngredients.appendChild(equalitySign);
-       recipeIngredients.appendChild(ingredient1);
-       recipeIngredients.appendChild(plusSign1);
-       recipeIngredients.appendChild(ingredient2);
-       recipeIngredients.appendChild(plusSign2);
-       recipeIngredients.appendChild(ingredient3);
+        recipeName.innerHTML = recipe.name.replace(/([A-Z])/g, ' $1').trim(); //this splits the string where there is a capital letter so that its split into words
+        console.log("recipe name: ", recipe.name);
+        recipePicture.src = "img/food/" + recipe.name + ".png";
+        equalitySign.innerHTML = "=";
+        plusSign1.innerHTML = "+";
 
-       recipeName.innerHTML = recipe.name;
-       console.log("recipe name: ", recipe.name);
-       recipePicture.src = "img/food/" + recipe.name + ".png";
-       equalitySign.innerHTML = "=";
-       plusSign1.innerHTML = "+";
-       plusSign2.innerHTML = "+";
-       ingredient1.src = "img/food/" + recipe.ingredients[0];
-       ingredient2.src = "img/food/" + recipe.ingredients[1];
-       ingredient3.src = "img/food/" + recipe.ingredients[2];
+        ingredient1.src = "img/food/" + recipe.ingredients[0];
+        ingredient2.src = "img/food/" + recipe.ingredients[1];
+
     }
 };
 

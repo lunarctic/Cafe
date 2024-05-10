@@ -212,3 +212,32 @@ body {
 #delivery{
     max-width: 90%;
 }
+
+#scoreTracker{
+    width: 200px;
+    background-color: white;
+    border: 2px solid black;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 20px;
+}
+
+#scoreTracker div:first-of-type{
+    display: flex;
+    gap: 5px;
+}
+
+/* Style for the progress bar */
+#levelProgress {
+    width: 90%; /* Full width */
+    height: 20px; /* Height of the bar */
+    background: rgb(193, 243, 192); /* Background for empty part of the bar */
+    margin: auto;
+}
+  
+#progressBar {
+    height: 100%; /* Full height */
+    background: green; /* Color for the filled part */
+}
+  

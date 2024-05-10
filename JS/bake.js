@@ -4,15 +4,15 @@ let ovenIsOn = false;
 const timer = document.getElementById("timer");
 
 
-// Step 1: Define recipes
   
-  // Step 2: Function to check if a combination matches a recipe
+  //Function to check if a combination matches a recipe
   function findMatchingRecipe(ingredients) {
     const sortedIngredientsStr = ingredients.sort().join(",");
   
     for (const recipe of recipes) {
       const recipeStr = recipe.ingredients.sort().join(",");
-  
+      console.log("recipeStr: "+ recipeStr );
+      console.log("sortedIngredientsStr: "+ sortedIngredientsStr );
       if (sortedIngredientsStr === recipeStr) {
         return recipe.name; // If strings match, return recipe name
       }
@@ -33,6 +33,8 @@ function bake(){
         getFilename(ovenSlot2.src),
         getFilename(ovenSlot3.src),
       ];
+
+      console.log("ingredients baking: ", ingredients);
 
     const matchedRecipe = findMatchingRecipe(ingredients);
     if (matchedRecipe) {

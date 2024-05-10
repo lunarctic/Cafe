@@ -1,4 +1,4 @@
-let foods = ["chocolate", "strawberry" , "cake_base", "raspberry" , "bananas", "creamcheese" , "cookies", "strawberry" , "chocolate", "strawberry" , "chocolate", "strawberry" , ];
+let foods = ["chocolate", "strawberry" , "CakeBase", "raspberry" , "blueberries", "pancakes" , "cookies", "CreamCheese" , "Cream", "Carrot" , "DonutBase", "lemon" , ];
 
 const fridgeContent = document.querySelector("#fridgeModal .modalContent");
 

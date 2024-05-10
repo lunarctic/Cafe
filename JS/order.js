@@ -17,6 +17,18 @@ function deliver(){
     const deliveredFood = getFilename(deliverySlot.src);
     if(deliveredFood === newOrder){
         window.alert("You got it right!")
+            score += 80; // Increase the score
+            // If the score reaches 100, start the next level
+            currentScore.innerHTML = score;
+
+            if (score >= 100) {
+              level++; // Increase the level
+              score = 0; // Reset the score
+              currentScore.innerHTML = score;
+              startNextLevel(); // Function to handle the start of a new level
+            }
+            updateProgressBar(); // Function to update the visual progress bar
+          
     } else{
         window.alert("You got it wrong!")
     }

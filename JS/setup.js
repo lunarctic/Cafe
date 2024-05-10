@@ -82,7 +82,7 @@ function positioningFurniture() {
     counterRight.style.right = 0;
     counterCenter.style.top = (33 * scaleSize) + (56 * scaleSize) + "px";
 
-    deliverySpot.style.top = (92 * scaleSize) + "px";
+    deliverySpot.style.top = (90 * scaleSize) + "px";
 
 }
 
