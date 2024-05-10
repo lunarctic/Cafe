@@ -5,17 +5,6 @@ const timer = document.getElementById("timer");
 
 
 // Step 1: Define recipes
-const recipes = [
-    {
-      name: "chocolate_cake",
-      ingredients: ["strawberry.png", "cake_base.png", "chocolate.png"].sort(), // Always sort ingredients for consistency
-    },
-    {
-      name: "raspberry_cheesecake_pot",
-      ingredients: ["raspberry.png", "creamcheese.png", "cookies.png"].sort(),
-    },
-    // Add more recipes as needed
-  ];
   
   // Step 2: Function to check if a combination matches a recipe
   function findMatchingRecipe(ingredients) {

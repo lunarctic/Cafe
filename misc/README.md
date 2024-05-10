@@ -6,6 +6,7 @@ TO DO
 -add a painting next to the fridge so it doesnt look so empty
 -make it so that u cant move when the modal is open
 -fix repetition in gettingItems.js
+-add music
 
 IDEAS
 -go shopping for food (i dont think i have time for this)

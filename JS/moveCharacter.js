@@ -68,7 +68,6 @@ const feetJS = document.getElementById("feetJS");
 const newFeetJS = document.getElementById("newFeetJS");
 
 document.addEventListener("keydown", function (event) {
-    console.log(event);
     //tried moving these definitions but it caused problems:
     let newX = x; // New potential X position
     let newY = y; // New potential Y position
@@ -118,7 +117,6 @@ document.addEventListener("keydown", function (event) {
 
 
 document.addEventListener('keyup', function (event) {
-    console.log(event)
     //left
     if (event.key == "a" || event.key == "A") {
         character_spritesheet.classList.remove("face-left", "animate_spritesheet")
