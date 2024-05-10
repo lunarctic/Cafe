@@ -3,7 +3,6 @@ deliverBtn.addEventListener("click", deliver);
 const order = document.getElementById("order");
 let newOrder = "";
 
-const messageModal = document.getElementById("messageModal");
 const messageTitle = document.querySelector("#messageContent h3");
 const messageContent = document.querySelector("#messageContent p");
 
@@ -24,7 +23,7 @@ function deliver(){
         messageTitle.innerHTML = "You got it right!"
         messageContent.innerHTML = "Good job :)"
         toggleModal(messageModal, true, false);
-            score += 80; // Increase the score
+            score += 100; // Increase the score
             // If the score reaches 100, start the next level
             currentScore.innerHTML = score;
 

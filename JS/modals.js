@@ -8,6 +8,7 @@ const deliveryModal = document.getElementById("deliveryModal");
 const inventory = document.getElementById("inventory");
 const recipeBtn = document.getElementById("recipeBtn");
 const recipeBook = document.getElementById("recipeBook");
+const messageModal = document.getElementById("messageModal");
 
 //checking the character's distance to the fridge/oven. if the character is standing in front of the fridge/oven, the "open" button will show
 function checkButtons() {
@@ -91,17 +92,22 @@ recipeBtn.onclick = () => {
     toggleModal(recipeBook, true, false);
 };
 
-const closeBtns = document.querySelectorAll(".close");
-for (const closeBtn of closeBtns) {
-    closeBtn.onclick = () => {
-        if (closeBtn.parentNode.id === "fridgeModal") {
-            openFridge(false)
+function getCloseBtns() {
+    const closeBtns = document.querySelectorAll(".close");
+    for (const closeBtn of closeBtns) {
+        closeBtn.onclick = () => {
+            if (closeBtn.parentNode.id === "fridgeModal") {
+                openFridge(false)
+            }
+            toggleModal(ovenModal, false, false);
+            toggleModal(fridgeModal, false, false);
+            toggleModal(recipeBook, false, false);
+            toggleModal(messageModal, false, false);
         }
-        toggleModal(ovenModal, false, false);
-        toggleModal(fridgeModal, false, false);
-        toggleModal(recipeBook, false, false);
     }
-}
+};
+
+getCloseBtns();
 
 function openFridge(open) {
     if (open) {
@@ -118,8 +124,10 @@ window.onclick = (event) => {
         if (fridgeModal.classList.contains("show")) {
             openFridge(false); // Closing the fridge if it was the fridge modal that was open
         }
-        toggleModal(ovenModal, false);
-        toggleModal(fridgeModal, false);
+        toggleModal(ovenModal, false, false);
+        toggleModal(fridgeModal, false, false);
+        toggleModal(recipeBook, false, false);
+        toggleModal(messageModal, false, false);
     }
 };
 
@@ -131,6 +139,19 @@ const recipes = [
     {
         name: "RaspberryCheesecakePot",
         ingredients: ["raspberry.png", "CreamCheese.png", "cookies.png"].sort(),
+    },
+    {
+        name: "StrawberryDonut",
+        ingredients: ["strawberry.png", "DonutBase.png", "Cream.png"].sort(),
+    },
+    {
+        name: "LemonDonut",
+        ingredients: ["lemon.png", "DonutBase.png", "Cream.png"].sort(),
+    },
+
+    {
+        name: "ChocolatePancakes",
+        ingredients: ["pancakes.png", "chocolate.png", "strawberry.png"].sort(),
     },
     {
         name: "CarrotCake",
@@ -145,37 +166,21 @@ const recipes = [
         ingredients: ["chocolate.png", "DonutBase.png", "Cream.png"].sort(),
     },
     {
-        name: "StrawberryDonut",
-        ingredients: ["strawberry.png", "DonutBase.png", "Cream.png"].sort(),
-    },
-    {
-        name: "LemonDonut",
-        ingredients: ["lemon.png", "DonutBase.png", "Cream.png"].sort(),
-    },
-    {
-        name: "LemonCheesecake",
-        ingredients: ["lemon.png", "cookies.png", "CreamCheese.png"].sort(),
-    },
-    {
-        name: "LemonBlueberryPot",
-        ingredients: ["lemon.png", "blueberries.png", "cookies.png"].sort(),
-    },
-    {
-        name: "BerryPancakes",
-        ingredients: ["pancakes.png", "blueberries.png", "raspberry.png"].sort(),
-    },
-    {
-        name: "ChocolatePancakes",
-        ingredients: ["pancakes.png", "chocolate.png", "strawberry.png"].sort(),
-    },
-    {
         name: "CookiesNCreamPancakes",
         ingredients: ["pancakes.png", "cookies.png", "Cream.png"].sort(),
     },
+
 ];
 
 
 function makeRecipeBook() {
+    recipeBook.innerHTML = '';
+    const recipeBookCloseBtn = document.createElement("span");
+    recipeBookCloseBtn.classList.add("close");
+    recipeBook.appendChild(recipeBookCloseBtn);
+    recipeBookCloseBtn.innerHTML = "&times;";
+    getCloseBtns();
+
     for (const recipe of recipes) {
         const recipeRow = document.createElement("div");
         recipeRow.classList.add("recipeRow");

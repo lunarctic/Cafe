@@ -25,7 +25,7 @@ body {
 }
 
 .animate_spritesheet {
-    animation: moveSpritesheet 2s steps(3) infinite;
+    animation: moveSpritesheet 1.5s steps(3) infinite;
     left: 0 !important;
 }
 
