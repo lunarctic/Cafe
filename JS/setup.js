@@ -60,20 +60,6 @@ function scaleFurniture() {
      walls.style.backgroundSize = (16 * scaleSize) + "px" + " " + (48 * scaleSize) + "px";
 }
 
-/*
-function putWalls() {
-    // Size the walls and put them up side by side
-    let leftPosition = 0;
-    for (const wall of walls) {
-        let originalWidth = wall.clientWidth;
-        let newWidth = originalWidth * scaleSize;
-        wall.style.width = newWidth + "px";
-        wall.style.left = leftPosition + "px";
-        leftPosition += newWidth;
-    }
-}
-*/
-
 function positioningFurniture() {
     //the kitchen
     ovenContainer.style.left = 0 + "px"; //can do this in CSS?
@@ -90,13 +76,12 @@ function positioningFurniture() {
     counterRight.style.right = 0;
     counterCenter.style.top = (33 * scaleSize) + (56 * scaleSize) + "px";
 
-    deliverySpot.style.top = (90 * scaleSize) + "px";
+    deliverySpot.style.top = (92 * scaleSize) + "px";
 
 }
 
 //calling the funcitons immediately
 scaleFurniture();
-/* putWalls(); */
 positioningFurniture();
 
 const kitchenFloorWidth = kitchenFloor.clientWidth; //need to get it AFTER the scaling function is run (? or not?)

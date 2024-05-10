@@ -3,6 +3,10 @@ deliverBtn.addEventListener("click", deliver);
 const order = document.getElementById("order");
 let newOrder = "";
 
+const messageModal = document.getElementById("messageModal");
+const messageTitle = document.querySelector("#messageContent h3");
+const messageContent = document.querySelector("#messageContent p");
+
 function getNewOrder(){
     newOrder = (recipes[Math.floor(Math.random() * recipes.length)].name) + ".png";
     console.log("new order: " + newOrder);
@@ -14,9 +18,12 @@ getNewOrder();
 function deliver(){
     putOrderBtn.classList.remove("show");
     myModal.classList.remove("show");
+    toggleModal(deliveryModal, false, false);
     const deliveredFood = getFilename(deliverySlot.src);
     if(deliveredFood === newOrder){
-        window.alert("You got it right!")
+        messageTitle.innerHTML = "You got it right!"
+        messageContent.innerHTML = "Good job :)"
+        toggleModal(messageModal, true, false);
             score += 80; // Increase the score
             // If the score reaches 100, start the next level
             currentScore.innerHTML = score;
@@ -30,7 +37,9 @@ function deliver(){
             updateProgressBar(); // Function to update the visual progress bar
           
     } else{
-        window.alert("You got it wrong!")
+        messageTitle.innerHTML = "You got it wrong!"
+        messageContent.innerHTML = "Do better next time"
+        toggleModal(messageModal, true, false);
     }
     deliverySlot.removeAttribute("src");
     getNewOrder();
