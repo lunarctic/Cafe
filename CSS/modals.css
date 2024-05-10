@@ -19,7 +19,7 @@
     background-color: rgba(0, 0, 0, 0.4); /* to have a darkened background*/
 }
 
-#fridgeModal, #ovenModal{
+#fridgeModal, #ovenModal, #deliveryModal{
     display: none;
     grid-column: 1/2;
     position: relative;
@@ -37,8 +37,12 @@
     height:45%;
 }
 
+#deliveryModal{
+    width: 50%;
+    height: 50%;
+}
 
-#fridgeModal.show, #ovenModal.show{
+#fridgeModal.show, #ovenModal.show, #deliveryModal.show{
     display: block;
 }
 
@@ -63,6 +67,12 @@
     padding: 10px;
 }
 
+#deliveryModal .modalContent{
+    background-color: white;
+    border: 10px solid #a4a4a4;
+    border-radius: 50%;
+}
+
 #ovenModal .modalContent{
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
@@ -72,7 +82,14 @@
     gap: 10px; 
 }
 
-#ovenModal .modalContent div{
+#deliveryModal .modalContent{
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    overflow: hidden;  /* Avoid overflow if content is larger */
+}
+
+#ovenModal .modalContent div, #deliveryModal .modalContent div{
     border: 4px dashed lightslategray;
     width: 80%;
     height: 80%;
@@ -81,10 +98,18 @@
     align-items: center;
 }
 
+#deliveryModal .modalContent div{
+    border: 4px dashed lightslategray;
+    border-radius: 50%;
+}
+
+/* the bake button */
 #ovenModal button{
     cursor: pointer;
     color: greenyellow;
-    z-index: 88888888;
+    z-index: 88888888 !important;
+    display: block !important;
+    top: -30px;
 }
 
 #fridgeModal .modalContent{
@@ -104,16 +129,16 @@
     align-items: center;
 }
 
-.openBtn{
+.btn{
     background-color: white;
     border: 2px solid black;
     border-radius: 20px;
     width: fit-content;
     padding: 5px 20px 5px 20px;
-    display: none;
-    z-index: 55555;
     position: absolute;
     cursor: pointer;
+    display: none;
+    z-index: 55555;
 }
 
 #fridgeBtn{
@@ -126,7 +151,7 @@
     left: 0;
 }
 
-.openBtn.show{
+.btn.show{
     display: flex;
 }
 
@@ -188,15 +213,35 @@
     display: block;
 }
 
-#inventory .food, #fridgeModal .food{
+#inventory .food, #fridgeModal .food, #deliveryModal .food{
     width: 90%;
     cursor: pointer;
     max-height: 100%;  /* Prevent overflowing beyond container height */
     object-fit: contain;  /* Ensure image scales while maintaining aspect ratio */
 }
 
+#deliveryModal .food{
+    width: 70%;
+}
+
 #ovenModal .food{
     height: 90%;
     cursor: pointer;
     object-fit: contain;  /* Ensure image scales while maintaining aspect ratio */
+}
+
+#putOrderBtn{
+    display: none;
+}
+
+#putOrderBtn.show{
+    display: block;
+}
+
+#deliverBtn{
+    cursor: pointer;
+    color: greenyellow;
+    z-index: 88888888 !important;
+    display: block !important;
+    top: -30px;
 }

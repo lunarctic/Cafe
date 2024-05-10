@@ -110,10 +110,12 @@ document.addEventListener("keydown", function (event) {
         feetJS.style.left = newFeetX + "px";
         feetJS.style.top = newFeetY + "px";
 
-        checkButtons()
+        checkButtons();
     }
 
 })
+
+
 
 document.addEventListener('keyup', function (event) {
     console.log(event)

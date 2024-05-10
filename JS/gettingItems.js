@@ -1,4 +1,4 @@
-let foods = ["chocolate", "strawberry" , "cake_base", "strawberry" , "chocolate", "strawberry" , "chocolate", "strawberry" , "chocolate", "strawberry" , "chocolate", "strawberry" , ];
+let foods = ["chocolate", "strawberry" , "cake_base", "raspberry" , "bananas", "creamcheese" , "cookies", "strawberry" , "chocolate", "strawberry" , "chocolate", "strawberry" , ];
 
 const fridgeContent = document.querySelector("#fridgeModal .modalContent");
 
@@ -9,6 +9,8 @@ const inventorySlot3 = document.getElementById("inventorySlot3");
 const ovenSlot1 = document.getElementById("ovenSlot1");
 const ovenSlot2 = document.getElementById("ovenSlot2");
 const ovenSlot3 = document.getElementById("ovenSlot3");
+
+const deliverySlot = document.getElementById("deliverySlot");
 
 function createFridgeSlots(){
     for (let i = 1; i < 13; i++) {
@@ -43,8 +45,8 @@ function transferFoodToInventory(event) {
             inventorySlot.src = "img/food/" + foodSrc;
             console.log(`inventorySlot${i + 1} src:`, inventorySlot.src);
             inventorySlot.addEventListener("click", transferFood);
-            if(ovenModal.classList.contains("show") && !food.parentNode.classList.contains("inventorySlot")){
-                //if the food is being transferred from the oven to the inventory
+            if((ovenModal.classList.contains("show") && !food.parentNode.classList.contains("inventorySlot")) ||(deliveryModal.classList.contains("show") && !food.parentNode.classList.contains("inventorySlot"))){
+                //if the food is being transferred from the oven to the inventory (hence checking that the food being transferred isnt IN the inventory already)
                 food.removeAttribute("src");
             }
             // Exit the loop once a slot is filled
@@ -69,7 +71,11 @@ function transferFood(event){
         //if the food is being transferred to the oven, copy the food into the oven before deleting it from the inventory
         putFoodInOven(foodToTransfer);
         foodToTransfer.removeAttribute("src");
-    } 
+    } else if (deliveryModal.classList.contains("show") && foodToTransfer.parentNode.classList.contains("inventorySlot")) {
+        //if the food is being transferred to the delivery plate
+        putFoodOnPlate(foodToTransfer);
+        foodToTransfer.removeAttribute("src");
+    }
     // If the fridge modal is not open, do nothing
     return;
 }
@@ -94,4 +100,17 @@ function putFoodInOven(event){
             break;
         }
     }
+}
+
+function putFoodOnPlate(event){
+    const food = event;
+    const foodSrc = getFilename(food.src);
+    console.log("src: " + foodSrc)
+
+    // If the slot is empty, assign the food source and add an event listener
+    if (!deliverySlot.src || deliverySlot.src === "") {
+        deliverySlot.src = "img/food/" + foodSrc;
+        deliverySlot.addEventListener("click", transferFoodToInventory);
+    }
+    
 }

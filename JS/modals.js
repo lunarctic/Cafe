@@ -1,12 +1,10 @@
-// henter modal
 const fridgeModal = document.getElementById("fridgeModal");
-// henter button som åpner modal
 const fridgeBtn = document.getElementById("fridgeBtn");
-// henter <span> elementet som lukker modal (close button)
 const ovenModal = document.getElementById("ovenModal");
 const ovenBtn = document.getElementById("ovenBtn");
 const myModal = document.getElementById("modal");
-
+const putOrderBtn = document.getElementById("putOrderBtn");
+const deliveryModal = document.getElementById("deliveryModal");
 const inventory = document.getElementById("inventory");
 
 //checking the character's distance to the fridge/oven. if the character is standing in front of the fridge/oven, the "open" button will show
@@ -32,15 +30,32 @@ function checkButtons(){
         bottom: oven.getBoundingClientRect().bottom,
     };
 
+    const deliverySpotRect = { 
+        top: deliverySpot.getBoundingClientRect().top,
+        left: deliverySpot.getBoundingClientRect().left,
+        right: deliverySpot.getBoundingClientRect().right,
+        bottom: deliverySpot.getBoundingClientRect().bottom,
+    };
+
+    console.log("delivery ", deliverySpotRect);
+    console.log("feet ", feetRect);
+
     if(feetRect.top <= fridgeRect.bottom + 40 && feetRect.left >= fridgeRect.left - 25 && feetRect.right <= fridgeRect.right + 25 ){
         fridgeBtn.classList.add("show");
        } else if(feetRect.top <= ovenRect.bottom + 40 && feetRect.left >= ovenRect.left - 25 && feetRect.right <= ovenRect.right + 90 ){
         if (ovenIsOn === false){
             ovenBtn.classList.add("show");
+            if(timer.classList.contains("show")){
+                timer.classList.remove("show");
+            }
         }
-       } else{
+       } else if(deliverySpotRect.top + 15 <= feetRect.bottom && feetRect.bottom <= deliverySpotRect.top + 60 && feetRect.left >= deliverySpotRect.left - 30 && feetRect.right <= deliverySpotRect.right + 30 ){
+            putOrderBtn.classList.add("show");
+       }
+       else{
         fridgeBtn.classList.remove("show");
         ovenBtn.classList.remove("show");
+        putOrderBtn.classList.remove("show");
        }
 }
 
@@ -63,6 +78,10 @@ fridgeBtn.onclick = () => {
 
 ovenBtn.onclick = () => {
     toggleModal(ovenModal, true);
+};
+
+putOrderBtn.onclick = () => {
+    toggleModal(deliveryModal, true);
 };
 
 const closeBtns = document.querySelectorAll(".close");

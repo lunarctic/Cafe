@@ -4,13 +4,13 @@
     padding: 0;
     box-sizing: border-box;
   }
-  
+
 :root {
     --scale-size: 4;
 }
 
 body {
-    background-image: url("img/furniture/planks2.png");
+    background-image: url("../img/furniture/planks2.png");
     background-size: 50px 50px;
     background-repeat: repeat;
     image-rendering: pixelated;
@@ -147,7 +147,7 @@ body {
 }
 
 #kitchen_floor {
-    background-image: url("img/furniture/tiles.png");
+    background-image: url("../img/furniture/tiles.png");
     background-repeat: repeat; /* Repeat both horizontally and vertically */
     position: absolute;
     z-index: -999;
@@ -176,4 +176,39 @@ body {
 
 #fridgeContainer, #ovenContainer{
     position: absolute;
+}
+
+#orderContainer{
+    width: 200px;
+    height: 200px;
+    background-color: aliceblue;
+    position: absolute;
+    z-index: 4444;
+    display: flex;
+    flex-direction: column;
+}
+
+#orderContainer h3{
+    text-align: center;
+    height: 10%;
+}
+
+#orderContainer img{
+    max-height: 90%;
+}
+
+#deliverySpot{
+    position: absolute;
+    z-index: 55555;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#delivery{
+    max-width: 90%;
 }

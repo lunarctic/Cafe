@@ -5,17 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="modals.css">
-    <link rel="stylesheet" href="bake.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/modals.css">
+    <link rel="stylesheet" href="CSS/bake.css">
 </head>
 
 <body>
     <div class="character" id="character">
         <img class="character_spritesheet pixelart" src="img/female.png" alt="Character" id="character_spritesheet">
-        <div id="serving">
-            <img class="pixelart" src="img/plate.png" alt="plate" id="plate">
-        </div>
         <div id="feet"></div>
     </div>
     <div id="feetJS"></div>
@@ -23,6 +20,11 @@
 
     <div id="kitchen_floor">
         <!-- <img src="img/furniture/tiles.png" alt="" id="tiles"> -->
+    </div>
+
+    <div id="orderContainer">
+        <h3> New Order:</h3>
+            <img src="" alt="" id="order">
     </div>
 
     <div id="modal">
@@ -34,7 +36,7 @@
         </div>
         <div id="ovenModal">
             <span class="close">&times;</span>
-            <button> Bake </button>
+            <button class="btn"> Bake </button>
             <div class="modalContent">
                 <div>
                     <img alt="" id="ovenSlot1" class="food">
@@ -44,6 +46,15 @@
                 </div>
                 <div>
                     <img alt="" id="ovenSlot3" class="food">
+                </div>
+            </div>
+        </div>
+        <div id="deliveryModal">
+            <span class="close">&times;</span>
+            <button id="deliverBtn" class="btn">Deliver</button>
+            <div class="modalContent">
+                <div>
+                    <img alt="" id="deliverySlot" class="food">
                 </div>
             </div>
         </div>
@@ -64,49 +75,17 @@
         </div>
     </div>
 
-    <!--
-    <div id="fridgeModal" class="modal">
-       
-        <span class="close">&times;</span>
-        <div class="modalContent">
-            <img src="img/food/chocolate.png" alt="chocolate">
-            <img src="img/food/chocolate.png" alt="chocolate">
-            <img src="img/food/chocolate.png" alt="chocolate">
-            <img src="img/food/chocolate.png" alt="chocolate">
-            <img src="img/food/chocolate.png" alt="chocolate">
-            <img src="img/food/chocolate.png" alt="chocolate">
-            <img src="img/food/chocolate.png" alt="chocolate">
-            <img src="img/food/chocolate.png" alt="chocolate">
-            <img src="img/food/chocolate.png" alt="chocolate">
-            <img src="img/food/chocolate.png" alt="chocolate">
-            <img src="img/food/chocolate.png" alt="chocolate">
-            <img src="img/food/chocolate.png" alt="chocolate">
-        </div>
-    </div>
-
-    <div id="ovenModal" class="modal">
-        
-        <span class="close">&times;</span>
-        <div class="modalContent">
-            <img src="img/food/chocolate.png" alt="chocolate">
-            <img src="img/food/chocolate.png" alt="chocolate">
-            <img src="img/food/chocolate.png" alt="chocolate">
-        </div>
-    </div>
-    -->
-
-
     <div id="furniture">
         <div id="kitchen">
             <div id="fridgeContainer">
                 <img src="img/furniture/fridge181.png" alt="" id="fridge">
                 <!-- <img src="img/furniture/openfridge.png" alt="" id="openFridge"> -->
                 <!-- src = "img/furniture/openfridge.png" -->
-                <div id="fridgeBtn" class="openBtn"> Open </div>
+                <button id="fridgeBtn" class="btn"> Open </button>
             </div>
             <div id="ovenContainer">
                 <img src="img/furniture/stove.png" alt="" id="oven">
-                <div id="ovenBtn" class="openBtn"> Open </div>
+                <button id="ovenBtn" class="btn"> Open </button>
                 <div id="timer"></div>
             </div>
             <img src="img/furniture/kitchenSet.png" alt="" id="kitchenSet">
@@ -145,11 +124,16 @@
     </div>
     <img src="img/furniture/countersCenter.png" alt="" id="counterCenter">
 
-    <script src="setup.js"></script>
-    <script src="modals.js"></script>
-    <script src="moveCharacter.js"></script>
-    <script src="gettingItems.js"></script>
-    <script src="bake.js"></script>
+    <div id="deliverySpot">
+        <img src="img/plate2.png" alt="" id="delivery">
+        <button id="putOrderBtn" class="btn">Place</button>
+    </div>
+
+    <script src="JS/setup.js"></script>
+    <script src="JS/modals.js"></script>
+    <script src="JS/moveCharacter.js"></script>
+    <script src="JS/gettingItems.js"></script>
+    <script src="JS/bake.js"></script>
 </body>
 
 </html>

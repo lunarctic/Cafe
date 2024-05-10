@@ -18,6 +18,8 @@ const ovenContainer = document.getElementById("ovenContainer");
 const counterRight = document.getElementById("counterRight");
 const counterLeft = document.getElementById("counterLeft");
 const counterCenter = document.getElementById("counterCenter");
+const deliverySpot = document.getElementById("deliverySpot");
+const delivery = document.getElementById("delivery");
 
 const feetScaleSize = 4; //for feet, because maybe i'll want to give the character a different size
 const scaleSize = 4; // Scaling factor
@@ -43,6 +45,8 @@ function scaleFurniture() {
     counterCenter.style.width = counterCenter.clientWidth * scaleSize + "px";
     counter.style.width = counterRight.clientWidth + counterLeft.clientWidth + counterCenter.clientWidth + "px";
     counter.style.height = counterRight.clientHeight + "px";
+
+    delivery.style.width = delivery.clientWidth * scaleSize + "px";
 
     //styling the tiled floor
     kitchenFloor.style.width = 166 * scaleSize + "px";
@@ -77,6 +81,9 @@ function positioningFurniture() {
     counterLeft.style.left = 0;
     counterRight.style.right = 0;
     counterCenter.style.top = (33 * scaleSize) + (56 * scaleSize) + "px";
+
+    deliverySpot.style.top = (92 * scaleSize) + "px";
+
 }
 
 //calling the funcitons immediately
