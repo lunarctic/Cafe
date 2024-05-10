@@ -4,7 +4,6 @@ const character_spritesheet = document.getElementById("character_spritesheet");
 const feet = document.getElementById("feet");
 
 const furnitures = document.querySelectorAll("#furniture img"); // Furniture element
-const walls = document.querySelectorAll("#wall img");
 const counter = document.getElementById("counter");
 const kitchenFloor = document.getElementById("kitchen_floor");
 
@@ -21,8 +20,10 @@ const counterCenter = document.getElementById("counterCenter");
 const deliverySpot = document.getElementById("deliverySpot");
 const delivery = document.getElementById("delivery");
 
-const feetScaleSize = 4; //for feet, because maybe i'll want to give the character a different size
-const scaleSize = 4; // Scaling factor
+const walls = document.getElementById("walls");
+
+const feetScaleSize = 5; //for feet, because maybe i'll want to give the character a different size
+const scaleSize = 5; // Scaling factor
 
 function scaleFurniture() {
     // Scale the furniture sizes
@@ -52,8 +53,14 @@ function scaleFurniture() {
     kitchenFloor.style.width = 166 * scaleSize + "px";
     kitchenFloor.style.height = 54 * scaleSize + "px";
     kitchenFloor.style.backgroundSize = (25 * scaleSize) + "px" + " " + (25 * scaleSize) + "px";
+
+     //styling the walls
+     walls.style.width = "100vw";
+     walls.style.height = 48 * scaleSize + "px";
+     walls.style.backgroundSize = (16 * scaleSize) + "px" + " " + (48 * scaleSize) + "px";
 }
 
+/*
 function putWalls() {
     // Size the walls and put them up side by side
     let leftPosition = 0;
@@ -65,6 +72,7 @@ function putWalls() {
         leftPosition += newWidth;
     }
 }
+*/
 
 function positioningFurniture() {
     //the kitchen
@@ -88,7 +96,7 @@ function positioningFurniture() {
 
 //calling the funcitons immediately
 scaleFurniture();
-putWalls();
+/* putWalls(); */
 positioningFurniture();
 
 const kitchenFloorWidth = kitchenFloor.clientWidth; //need to get it AFTER the scaling function is run (? or not?)
