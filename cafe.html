@@ -12,7 +12,7 @@
 
 <body>
     <div class="character" id="character">
-        <img class="character_spritesheet pixelart" src="img/female.png" alt="Character" id="character_spritesheet">
+        <img class="character_spritesheet pixelart" src="img/spritesheets/skeleton.png" alt="Character" id="character_spritesheet">
         <div id="feet"></div>
     </div>
     <div id="feetJS"></div>
@@ -72,6 +72,7 @@
 
         <div id="recipeBook">
             <!-- 
+            <span class="close">&times;</span>
             <div class="recipeRow">
                 <h3 class="recipeName"></h3>
                 <div class="recipeIngredients">
@@ -93,8 +94,37 @@
             </div>
         </div>
 
+        <div id="charCustomisationModal">
+            <span class="close">&times;</span>
+            <div>
+                <img src="img/characters/skeleton.png" alt="">
+                <img src="img/characters/ghost.png" alt="">
+                <img src="img/characters/female1.png" alt="">
+                <img src="img/characters/female2.png" alt="">
+                <img src="img/characters/female3.png" alt="">
+                <img src="img/characters/female4.png" alt="">
+                <img src="img/characters/female5.png" alt="">
+                <img src="img/characters/female6.png" alt="">
+                <img src="img/characters/female7.png" alt="">
+                <img src="img/characters/female8.png" alt="">
+                <img src="img/characters/female9.png" alt="">
+                <img src="img/characters/female10.png" alt="">
+                <img src="img/characters/male1.png" alt="">
+                <img src="img/characters/male2.png" alt="">
+                <img src="img/characters/male3.png" alt="">
+                <img src="img/characters/male4.png" alt="">
+                <img src="img/characters/male5.png" alt="">
+                <img src="img/characters/male6.png" alt="">
+                <img src="img/characters/male7.png" alt="">
+                <img src="img/characters/male8.png" alt="">
+                <img src="img/characters/male9.png" alt="">
+                <img src="img/characters/male10.png" alt="">
+            </div>
+        </div>
+
     </div>
     <button id="recipeBtn" class="btn">Open Recipe Book </button>
+    <button id="charBtn" class="btn">Character Customisation</button>
 
     <div id="scoreTracker">
         <!-- Level Display -->
@@ -151,6 +181,7 @@
     <script src="JS/bake.js"></script>
     <script src="JS/scoreTracker.js"></script>
     <script src="JS/order.js"></script>
+    <script src="JS/changeCharacter.js"></script>
 </body>
 
 </html>

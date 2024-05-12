@@ -5,7 +5,6 @@ TO DO
 -make it so that u cant move when the modal is open
 -fix repetition in gettingItems.js
 -add music
--fix the walls
 -add API tracker
 -recipes unlock after certain levels
 

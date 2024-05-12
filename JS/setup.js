@@ -1,5 +1,5 @@
 const character = document.getElementById("character");
-const character_spritesheet = document.getElementById("character_spritesheet");
+const characterSpritesheet = document.getElementById("character_spritesheet");
 //const plate = document.getElementById("plate");
 const feet = document.getElementById("feet");
 

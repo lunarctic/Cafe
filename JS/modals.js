@@ -9,6 +9,8 @@ const inventory = document.getElementById("inventory");
 const recipeBtn = document.getElementById("recipeBtn");
 const recipeBook = document.getElementById("recipeBook");
 const messageModal = document.getElementById("messageModal");
+const charCustomisationModal = document.getElementById("charCustomisationModal");
+const charBtn = document.getElementById("charBtn");
 
 //checking the character's distance to the fridge/oven. if the character is standing in front of the fridge/oven, the "open" button will show
 function checkButtons() {
@@ -92,6 +94,11 @@ recipeBtn.onclick = () => {
     toggleModal(recipeBook, true, false);
 };
 
+charBtn.onclick = () => {
+    toggleModal(charCustomisationModal, true, false);
+};
+
+
 function getCloseBtns() {
     const closeBtns = document.querySelectorAll(".close");
     for (const closeBtn of closeBtns) {
@@ -103,6 +110,7 @@ function getCloseBtns() {
             toggleModal(fridgeModal, false, false);
             toggleModal(recipeBook, false, false);
             toggleModal(messageModal, false, false);
+            toggleModal(charCustomisationModal, false, false);
         }
     }
 };
@@ -128,6 +136,7 @@ window.onclick = (event) => {
         toggleModal(fridgeModal, false, false);
         toggleModal(recipeBook, false, false);
         toggleModal(messageModal, false, false);
+        toggleModal(charCustomisationModal, false, false);
     }
 };
 
