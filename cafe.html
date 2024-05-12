@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/modals.css">
+    <link rel="stylesheet" href="CSS/bake.css">
+</head>
+
+<body>
+    <div class="character" id="character">
+        <img class="character_spritesheet pixelart" src="img/female.png" alt="Character" id="character_spritesheet">
+        <div id="feet"></div>
+    </div>
+    <div id="feetJS"></div>
+    <div id="newFeetJS"></div>
+
+    <div id="orderContainer">
+        <h3> New Order:</h3>
+        <img src="" alt="" id="order">
+    </div>
+
+    <div id="modal">
+        <div id="fridgeModal">
+            <span class="close">&times;</span>
+            <div class="modalContent">
+
+            </div>
+        </div>
+        <div id="ovenModal">
+            <span class="close">&times;</span>
+            <button class="btn"> Bake </button>
+            <div class="modalContent">
+                <div>
+                    <img alt="" id="ovenSlot1" class="food">
+                </div>
+                <div>
+                    <img alt="" id="ovenSlot2" class="food">
+                </div>
+                <div>
+                    <img alt="" id="ovenSlot3" class="food">
+                </div>
+            </div>
+        </div>
+        <div id="deliveryModal">
+            <span class="close">&times;</span>
+            <button id="deliverBtn" class="btn">Deliver</button>
+            <div class="modalContent">
+                <div>
+                    <img alt="" id="deliverySlot" class="food">
+                </div>
+            </div>
+        </div>
+
+        <div id="inventory">
+            <h3> INVENTORY </h3>
+            <div class="grid">
+                <div class="inventorySlot">
+                    <img alt="" id="inventorySlot1" class="food">
+                </div>
+                <div class="inventorySlot">
+                    <img alt="" id="inventorySlot2" class="food">
+                </div>
+                <div class="inventorySlot">
+                    <img alt="" id="inventorySlot3" class="food">
+                </div>
+            </div>
+        </div>
+
+        <div id="recipeBook">
+            <!-- 
+            <div class="recipeRow">
+                <h3 class="recipeName"></h3>
+                <div class="recipeIngredients">
+                    <img src="" alt="" class="recipePicture">
+                     <h3> = </h3> 
+                    <img src="" alt="" class="ingredient1">
+                    <img src="" alt="" class="ingredient2">
+                    <img src="" alt="" class="ingredient3">
+                </div>
+            </div>
+            -->
+        </div>
+
+        <div id="messageModal">
+            <span class="close">&times;</span>
+            <div id="messageContent">
+                <h3></h3>
+                <p></p>
+            </div>
+        </div>
+
+    </div>
+    <button id="recipeBtn" class="btn">Open Recipe Book </button>
+
+    <div id="scoreTracker">
+        <!-- Level Display -->
+        <h2 id="levelDisplay">Level: 1</h2>
+        <!-- Progress Bar -->
+        <div>
+            <h3> XP: </h3>
+            <div id="levelProgress">
+                <div id="progressBar" style="width: 0;"></div> <!-- Width represents the score -->
+            </div>
+            <h3 id="currentScore"></h3>
+        </div>
+    </div>
+
+    <div id="furniture">
+        <div id="kitchen">
+            <div id="fridgeContainer">
+                <img src="img/furniture/fridge181.png" alt="" id="fridge">
+                <button id="fridgeBtn" class="btn"> Open </button>
+            </div>
+            <div id="ovenContainer">
+                <img src="img/furniture/stove.png" alt="" id="oven">
+                <button id="ovenBtn" class="btn"> Open </button>
+                <div id="timer"></div>
+            </div>
+            <img src="img/furniture/kitchenSet.png" alt="" id="kitchenSet">
+        </div>
+    </div>
+
+    
+    <div id="kitchen_floor">
+        <!-- <img src="img/furniture/tiles.png" alt="" id="tiles"> -->
+    </div>
+
+    <div id="walls">
+        <!-- <img src="img/furniture/tiles.png" alt="" id="tiles"> -->
+    </div>
+
+    <div id="counter">
+        <img src="img/furniture/countersRight.png" alt="" id="counterRight">
+        <img src="img/furniture/countersLeft.png" alt="" id="counterLeft">
+    </div>
+    <img src="img/furniture/countersCenter.png" alt="" id="counterCenter">
+
+    <div id="deliverySpot">
+        <img src="img/plate1.png" alt="" id="delivery">
+        <button id="putOrderBtn" class="btn">Place</button>
+    </div>
+
+    <script src="JS/setup.js"></script>
+    <script src="JS/modals.js"></script>
+    <script src="JS/moveCharacter.js"></script>
+    <script src="JS/gettingItems.js"></script>
+    <script src="JS/bake.js"></script>
+    <script src="JS/scoreTracker.js"></script>
+    <script src="JS/order.js"></script>
+</body>
+
+</html>
