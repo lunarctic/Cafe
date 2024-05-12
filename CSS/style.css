@@ -27,6 +27,8 @@ body {
 .animate_spritesheet {
     animation: moveSpritesheet 1.5s steps(3) infinite;
     left: 0 !important;
+    z-index: 55555;
+    cursor: pointer;
 }
 
 .character_spritesheet {
@@ -249,3 +251,7 @@ body {
     background: green; /* Color for the filled part */
 }
   
+#musicBtn{
+    top: 400px;
+    position: absolute;
+}

@@ -85,3 +85,21 @@ scaleFurniture();
 positioningFurniture();
 
 const kitchenFloorWidth = kitchenFloor.clientWidth; //need to get it AFTER the scaling function is run (? or not?)
+
+    // Get the audio element
+    const BGmusic = document.getElementById("BGmusic");
+    const musicBtn = document.getElementById("musicBtn");
+    let isPlaying = false;
+
+    musicBtn.addEventListener("click", function() {
+        if (isPlaying) {
+            BGmusic.pause();
+            isPlaying = false;
+            musicBtn.textContent = "Play Music";
+        } else {
+            BGmusic.play();
+            isPlaying = true;
+            musicBtn.textContent = "Pause Music";
+        }
+    });
+   
