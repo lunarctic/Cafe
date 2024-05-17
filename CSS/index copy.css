@@ -1,0 +1,15 @@
+/*Minimal reset*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+body {
+    background-image: url("../img/cafeBG.png");
+    background-size: cover;
+    image-rendering: pixelated;
+    background-position: 50% 80%;
+    height:100vh;
+
+}

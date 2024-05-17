@@ -1,15 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rancho&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rancho&family=VT323&display=swap');
+/*
+font-family: "Press Start 2P"; 
+font-family: "DotGothic16", sans-serif;
+font-family: "Rancho", cursive;
+ font-family: "VT323", monospace;
+*/
+
 /*Minimal reset*/
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
+  
 
 body {
-    background-image: url("../img/cafeBG.png");
-    background-size: cover;
+    background-image: url("../img/floor.png");
+    background-size: contain;
     image-rendering: pixelated;
-    background-position: 50% 80%;
-    height:100vh;
+    background-repeat: repeat;
+    /*background-size: 144px 144px; */
+}
 
+#cafe{
+  image-rendering: pixelated;
+  width: 100%;
+  height: 100%;
+}
+
+h1{
+  position: absolute;
+  left: 50%;
+  /* Place at the horizontal center */
+  transform: translateX(-50%);
+  /* Adjust to center horizontally */
+   width: 100%;
+  /* top: 80px;
+  left: 40px; */
+  background-color: #ff654d;
+  color: #fffdfc;
+  font-size: 80px;
+  font-family: "Rancho", cursive;
+  letter-spacing: 4px;
+  font-style: italic;
+  padding: 35px 25px;
+  border-radius: 78px;
+  border: 10px solid #432924;
+}
+
+a{
+  position: absolute;
+  /* left: 180px;
+  top: 300px; */
+  left: 50%;
+  /* Place at the horizontal center */
+  transform: translateX(-50%);
+  /* Adjust to center horizontally */
+  top: 230px;
+}
+
+#playBtn{
+  font-size: 30px;
+  font-family: "Press Start 2P", cursive;
+  padding: 20px;
+  border-radius: 50px;
+  background-color: rgb(145, 220, 145);
+  color: white;
+  border: 5px solid rgb(43, 101, 43);
+  cursor: pointer;
+  left: 50%;
+}
+
+#playBtn:hover{
+  background-color: rgb(102, 247, 102);
+  border-color: white;
+}
+
+#instructions{
+  font-size: 30px;
+  color: white;
+  font-family: "VT323", sans-serif;
+  background-color: rgba(176, 165, 137, 0.8);
+  border: 5px solid #70604e;
+  margin: 0 80px 80px 80px;
+  padding: 40px 60px;
+}
+
+li{
+  margin-bottom: 15px;
+}
+
+h2{
+  margin-bottom: 20px;
+}
+
+p{
+  position: absolute;
+  font-family: "VT323", sans-serif;
+  width: fit-content;
+  text-align: center;
+  font-size: 25px;
+  /* top: 400px;
+  left: 200px; */
+  background-color: #ffecb6;
+  border: 3px solid #76614f;
+  border-radius: 20px;
+  padding: 10px;
+  color: #76614f;
+  left: 50%;
+  /* Place at the horizontal center */
+  transform: translateX(-50%);
+  /* Adjust to center horizontally */
+  top: 330px;
+}
+
+#main{
+  position: absolute;
+  top: 100px;
+  left: 40px;
+  width: 500px;
+  height: 500px;
 }

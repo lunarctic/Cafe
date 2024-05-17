@@ -25,7 +25,7 @@ const timer = document.getElementById("timer");
 function bake(){
     ovenIsOn = true;
     ovenBtn.classList.remove("show");
-    myModal.classList.remove("show");
+    toggleModal(ovenModal, false, false);
     timer.classList.add("show");
 
     const ingredients = [

@@ -111,6 +111,7 @@ function getCloseBtns() {
             toggleModal(recipeBook, false, false);
             toggleModal(messageModal, false, false);
             toggleModal(charCustomisationModal, false, false);
+            toggleModal(deliveryModal, false, false);
         }
     }
 };
@@ -137,6 +138,7 @@ window.onclick = (event) => {
         toggleModal(recipeBook, false, false);
         toggleModal(messageModal, false, false);
         toggleModal(charCustomisationModal, false, false);
+        toggleModal(deliveryModal, false, false);
     }
 };
 
@@ -153,34 +155,7 @@ const recipes = [
         name: "StrawberryDonut",
         ingredients: ["strawberry.png", "DonutBase.png", "Cream.png"].sort(),
     },
-    {
-        name: "LemonDonut",
-        ingredients: ["lemon.png", "DonutBase.png", "Cream.png"].sort(),
-    },
-
-    {
-        name: "ChocolatePancakes",
-        ingredients: ["pancakes.png", "chocolate.png", "strawberry.png"].sort(),
-    },
-    {
-        name: "CarrotCake",
-        ingredients: ["Carrot.png", "Cream.png", "CakeBase.png"].sort(),
-    },
-    {
-        name: "CookiesNCreamPot",
-        ingredients: ["Cream.png", "cookies.png", "chocolate.png"].sort(),
-    },
-    {
-        name: "ChocolateDonut",
-        ingredients: ["chocolate.png", "DonutBase.png", "Cream.png"].sort(),
-    },
-    {
-        name: "CookiesNCreamPancakes",
-        ingredients: ["pancakes.png", "cookies.png", "Cream.png"].sort(),
-    },
-
 ];
-
 
 function makeRecipeBook() {
     recipeBook.innerHTML = '';
