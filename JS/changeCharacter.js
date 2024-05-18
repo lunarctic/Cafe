@@ -22,4 +22,4 @@ const characterSrc = localStorage.getItem("characterSkin");
 
 if(characterSrc){
     setCharacter(characterSrc);
-}
+};

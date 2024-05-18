@@ -21,7 +21,7 @@ function deliver() {
     const deliveredFood = getFilename(deliverySlot.src);
     if (deliveredFood === newOrder) {
         messageTitle.innerHTML = "You got it right!"
-        messageContent.innerHTML = "Good job :) You reward is 20XP. Keep going!"
+        messageContent.innerHTML = "Good job :) Your reward is 20XP. Keep going!"
         toggleModal(messageModal, true, false);
         score += 20; 
         console.log("score: " + score)
@@ -33,6 +33,7 @@ function deliver() {
         messageContent.innerHTML = "Well that's a shame. You lost 20XP. Do better next time."
         toggleModal(messageModal, true, false);
         score -= 20;
+        console.log("score: " + score)
         updateScoreNLevel();
         updateProgressBar();
     }

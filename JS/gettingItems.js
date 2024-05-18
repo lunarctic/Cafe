@@ -24,7 +24,7 @@ function createFridgeSlots(){
         console.log("creating food/slot no" + i);
         food.addEventListener("click", transferFoodToInventory);
 }
-}
+};
 
 createFridgeSlots()
 
@@ -76,7 +76,7 @@ function transferFood(event){
         putFoodOnPlate(foodToTransfer);
         foodToTransfer.removeAttribute("src");
     }
-    // If the fridge modal is not open, do nothing
+    // if the fridge modal is not open, do nothing
     return;
 }
 
@@ -112,5 +112,4 @@ function putFoodOnPlate(event){
         deliverySlot.src = "img/food/" + foodSrc;
         deliverySlot.addEventListener("click", transferFoodToInventory);
     }
-    
 }
