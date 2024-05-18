@@ -16,6 +16,7 @@ font-family: "VT323", monospace;
     box-sizing: border-box;
   }
 
+/* sizing the character*/
 :root {
     --scale-size: 5;
 }
@@ -27,6 +28,7 @@ body {
     image-rendering: pixelated;
 }
 
+/* Style for the character */
 .character {
     width: calc(32px * var(--scale-size));
     height: calc(33px * var(--scale-size));
@@ -35,11 +37,10 @@ body {
     z-index: 333;
 }
 
+/* Animation for character movement. Basically it moves the spritesheet to the left continously so that the frame visible changes. And depending on the direction the character is moving, it moves to a different row*/
 .animate_spritesheet {
     animation: moveSpritesheet 1.5s steps(3) infinite;
     left: 0 !important;
-    z-index: 55555;
-    cursor: pointer;
 }
 
 .character_spritesheet {
@@ -74,6 +75,7 @@ body {
     top: calc(-96px * var(--scale-size));
 }
 
+/* To be able to check for collisions */
 #feet {
     width: calc(22px * var(--scale-size));
     height: calc(3px * var(--scale-size));
@@ -82,6 +84,7 @@ body {
     right: calc(5px * var(--scale-size));
 }
 
+/* Positioning and styling furniture, floor, walls etc */
 #wall img {
     position: absolute;
     top: 0;
@@ -93,23 +96,14 @@ body {
     z-index: 1;
 }
 
-
 #kitchenSet{
     top: 0;
 }
 
-/*
-#stove{
-    top: calc(12px * var(--scale-size));
-    left: 432px;
-} */
-
 #kitchen {
     position: absolute;
     left: 50%;
-    /* Place at the horizontal center */
     transform: translateX(-50%);
-    /* Adjust to center horizontally */
     z-index: 22;
 }
 
@@ -117,9 +111,7 @@ body {
     position: absolute;
     z-index: 1;
     left: 50%;
-    /* Place at the horizontal center */
     transform: translateX(-50%);
-    /* Adjust to center horizontally */
 }
 
 #counter img{
@@ -129,41 +121,32 @@ body {
 #counterCenter{
     position: absolute;
     left: 50%;
-    /* Place at the horizontal center */
     transform: translateX(-50%);
-    /* Adjust to center horizontally */
     z-index: 4444;
 }
 
 #kitchen_floor {
     background-image: url("../img/furniture/tiles.png");
-    background-repeat: repeat; /* Repeat both horizontally and vertically */
+    background-repeat: repeat; 
     position: absolute;
     z-index: -999;
     left: 50%;
-    /* Place at the horizontal center */
     transform: translateX(-50%);
-    /* Adjust to center horizontally */
 }
 
 #walls {
     background-image: url("../img/furniture/wall.png");
-    background-repeat: repeat; /* Repeat both horizontally and vertically */
+    background-repeat: repeat;
     position: absolute;
     z-index: -99 !important;
     top: 0;
 }
 
-#fireplace{
-    bottom: 0;
-    left: 0;
-}
-
-
 #fridgeContainer, #ovenContainer{
     position: absolute;
 }
 
+/* Style for the order box */
 #orderContainer{
     width: 200px;
     height: 200px;
@@ -213,7 +196,6 @@ body {
     background-color: #faffdb;
     border: 10px solid #ff654d;
     border-radius: 10px;
-
     position: absolute;
     top: 0;
     right: 0;
@@ -228,14 +210,14 @@ body {
 
 /* Style for the progress bar */
 #levelProgress {
-    width: 90%; /* Full width */
-    height: 20px; /* Height of the bar */
+    width: 90%;
+    height: 20px;
     background: rgb(193, 243, 192); /* Background for empty part of the bar */
     margin: auto;
 }
   
 #progressBar {
-    height: 100%; /* Full height */
+    height: 100%;
     background: green; /* Color for the filled part */
 }
   

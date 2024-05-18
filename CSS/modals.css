@@ -5,18 +5,23 @@
     box-sizing: border-box;
   }
 
-/* popup for help */
-/* the modal (overlay background) */
 #modal {
-    display: none; /* hidden by default */
-    position: fixed; /* stay in place */
+    display: none; 
+    position: fixed; 
     z-index: 666666;
     left: 0; 
     top: 0;
     width: 100%; 
     height: 100%; 
-    overflow: auto; /* enable scroll if needed */
-    background-color: rgba(0, 0, 0, 0.5); /* to have a darkened background*/
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); 
+}
+
+#modal.show{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 10%;
 }
 
 #fridgeModal, #ovenModal, #deliveryModal{
@@ -25,6 +30,10 @@
     position: relative;
     right: 0;
     justify-self: end;
+}
+
+#fridgeModal.show, #ovenModal.show, #deliveryModal.show{
+    display: block;
 }
 
 #fridgeModal{
@@ -42,19 +51,6 @@
     height: 50%;
 }
 
-#fridgeModal.show, #ovenModal.show, #deliveryModal.show{
-    display: block;
-}
-
-/* to make the modal visible */
-#modal.show{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 10%;
-}
-
-/* modal content/box */
 .modalContent {
     background-color: #b9b9b9;
     border: 10px solid #323232;
@@ -62,7 +58,6 @@
     z-index: 7777777;
     width: 100%;
     height: 100%;
-
     border-radius: 10px;
     padding: 10px;
 }
@@ -71,6 +66,10 @@
     background-color: white;
     border: 10px solid #000000;
     border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    overflow: hidden;  
 }
 
 #ovenModal .modalContent{
@@ -78,18 +77,11 @@
     grid-template-rows: 1fr 1fr 1fr;
     align-items: center;
     justify-items: center; 
-    overflow: hidden;  /* Avoid overflow if content is larger */
+    overflow: hidden;  
     gap: 10px; 
 }
 
-#deliveryModal .modalContent{
-    display: flex;
-    align-items: center;
-    justify-content: center; 
-    overflow: hidden;  /* Avoid overflow if content is larger */
-}
-
-#ovenModal .modalContent div, #deliveryModal .modalContent div{
+#ovenModal .modalContent div, #deliveryModal .modalContent div, .fridgeSlot{
     border: 4px dashed lightslategray;
     width: 80%;
     height: 80%;
@@ -99,8 +91,19 @@
 }
 
 #deliveryModal .modalContent div{
-    border: 4px dashed lightslategray;
     border-radius: 50%;
+}
+
+.fridgeSlot{
+    border: 4px dashed gray;
+}
+
+#fridgeModal .modalContent{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center; 
 }
 
 /* the bake button */
@@ -113,23 +116,6 @@
     font-size: 30px;
     left: 50%;
     transform: translateX(-50%);
-}
-
-#fridgeModal .modalContent{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    align-items: center;
-    justify-items: center; 
-}
-
-.fridgeSlot{
-    border: 4px dashed gray;
-    width: 80%;
-    height: 80%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .btn{
@@ -177,7 +163,7 @@
 }
 
 .close:hover, .close:focus {
-    color: #dbdbdb;
+    background-color: rgb(160, 0, 0);
     text-decoration: none;
     cursor: pointer;
 }
@@ -267,13 +253,17 @@
     display: none;
     justify-self: center;
     grid-column: 1/3;
+    position: relative;
+}
+
+.recipeBookContent{
+    width: 100%;
+    height: 100%;
     background-color: #fcf4dc;
     border: 10px solid #cd4c3c;
-    position: relative;
     font-family: "VT323", monospace;
     font-size: 30px;
     overflow-y:auto;
-
 }
 
 #recipeBook.show{
@@ -343,11 +333,7 @@
     display: none;
     justify-self: center;
     grid-column: 1/3;
-    background-color: #fcf4dc;
-    border: 10px solid #cd4c3c;
-    padding: 40px;
     position: relative;
-    overflow-y:auto;
 }
 
 #charCustomisationModal div{
@@ -357,6 +343,10 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     gap: 20px;
+    background-color: #fcf4dc;
+    border: 10px solid #cd4c3c;
+    padding: 40px;
+    overflow-y:auto;
 }
 
 #charCustomisationModal div img {

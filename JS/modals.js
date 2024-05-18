@@ -161,9 +161,12 @@ function makeRecipeBook() {
     recipeBook.innerHTML = '';
     const recipeBookCloseBtn = document.createElement("span");
     recipeBookCloseBtn.classList.add("close");
-    recipeBook.appendChild(recipeBookCloseBtn);
     recipeBookCloseBtn.innerHTML = "&times;";
+    recipeBook.appendChild(recipeBookCloseBtn);
     getCloseBtns();
+    const recipeBookContent = document.createElement("div");
+    recipeBookContent.classList.add("recipeBookContent");
+    recipeBook.appendChild(recipeBookContent);
 
     for (const [index, recipe] of recipes.entries()) {
         const recipeRow = document.createElement("div");
@@ -183,7 +186,7 @@ function makeRecipeBook() {
         ingredient1.classList.add("ingredient1");
         const ingredient2 = document.createElement("img");
         ingredient2.classList.add("ingredient2");
-        recipeBook.appendChild(recipeRow);
+        recipeBookContent.appendChild(recipeRow);
         recipeRow.appendChild(recipeName);
         recipeRow.appendChild(recipeIngredients);
         recipeIngredients.appendChild(recipePicture);
