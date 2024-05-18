@@ -2,6 +2,8 @@ const bakeBtn = document.querySelector("#ovenModal button");
 bakeBtn.addEventListener("click", bake);
 let ovenIsOn = false;
 const timer = document.getElementById("timer");
+const timerSound = document.getElementById("timerSound");
+const dingSound = document.getElementById("ding");
 
 
   
@@ -37,21 +39,20 @@ function bake(){
       console.log("ingredients baking: ", ingredients);
 
     const matchedRecipe = findMatchingRecipe(ingredients);
+     // Clear oven slots after baking
+    ovenSlot1.removeAttribute("src");
+    ovenSlot2.removeAttribute("src");
+    ovenSlot3.removeAttribute("src");
     if (matchedRecipe) {
         console.log("Recipe matched: " + matchedRecipe);
+        ovenSlot2.src = "img/food/" + matchedRecipe + ".png";
     } else {
         console.log("No matching recipe found.");
     }
 
-    // Clear oven slots after baking
-    ovenSlot1.removeAttribute("src");
-    ovenSlot2.removeAttribute("src");
-    ovenSlot3.removeAttribute("src");
-    ovenSlot2.src = "img/food/" + matchedRecipe + ".png";
-    
     // The initial countdown value in seconds
-    let countdownValue = 20;
-
+    let countdownValue = 10;
+    timerSound.play();
     // Function to update the timer
     function updateTimer() {
     if (countdownValue >= 0) {
@@ -60,7 +61,9 @@ function bake(){
     } else {
         // Timer has reached zero, clear the interval and perform any desired action
         clearInterval(countdownInterval);
-        timer.innerHTML = "Time's up!"; // Optional: Indicate the end of the countdown
+        timerSound.pause();
+        dingSound.play();
+        timer.innerHTML = "✓"; // Optional: Indicate the end of the countdown
         ovenIsOn = false;
     }
     }

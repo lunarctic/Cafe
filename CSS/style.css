@@ -1,3 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rancho&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rancho&family=VT323&display=swap');
+/*
+font-family: "Press Start 2P"; 
+font-family: "DotGothic16", sans-serif;
+font-family: "Rancho", cursive;
+font-family: "VT323", monospace;
+*/
+
 /*Minimal reset*/
 * {
     margin: 0;
@@ -156,20 +167,29 @@ body {
 #orderContainer{
     width: 200px;
     height: 200px;
-    background-color: aliceblue;
+    background-color: #faffdb;
+    border: 10px solid #ff654d;
+    border-radius: 10px;
     position: absolute;
     z-index: 4444;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
     flex-direction: column;
+    font-family: "VT323", monospace;
+    padding: 10px 15px 15px 15px;
 }
 
 #orderContainer h3{
     text-align: center;
-    height: 10%;
+    max-height: 20%;
+    font-size: 35px;
 }
 
 #orderContainer img{
-    max-height: 90%;
+    max-height: 80%;
+    width: 75%;
 }
 
 #deliverySpot{
@@ -190,12 +210,15 @@ body {
 
 #scoreTracker{
     width: 200px;
-    background-color: white;
-    border: 2px solid black;
+    background-color: #faffdb;
+    border: 10px solid #ff654d;
+    border-radius: 10px;
+
     position: absolute;
     top: 0;
     right: 0;
     padding: 20px;
+    font-family: "VT323", monospace;
 }
 
 #scoreTracker div:first-of-type{
@@ -217,6 +240,7 @@ body {
 }
   
 #musicBtn{
-    top: 400px;
-    position: absolute;
+    display: block !important;
+    top: 200px;
+    right: 10px;
 }

@@ -49,7 +49,7 @@ function updateRecipeBook() {
   //first the beginner recipes:
   addRecipe("ChocolateCake", ["strawberry.png", "CakeBase.png", "chocolate.png"]);
   addRecipe("RaspberryCheesecakePot", ["raspberry.png", "CreamCheese.png", "cookies.png"]);
-  addRecipe("StrawberryDonut", ["strawberry.png", "DonutBase.png", "Cream.png"]);
+  addRecipe("StrawberryDonut", ["strawberry.png", "DonutBase.png", "Cream.png"]);  
 
   if(level >= 2){
     // Adding a new recipe

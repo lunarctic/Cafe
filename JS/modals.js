@@ -165,9 +165,12 @@ function makeRecipeBook() {
     recipeBookCloseBtn.innerHTML = "&times;";
     getCloseBtns();
 
-    for (const recipe of recipes) {
+    for (const [index, recipe] of recipes.entries()) {
         const recipeRow = document.createElement("div");
         recipeRow.classList.add("recipeRow");
+        if (index % 2 != 0) {
+            recipeRow.style.backgroundColor = "rgb(255 224 192)";
+        }
         const recipeName = document.createElement("h3");
         recipeName.classList.add("recipeName");
         const recipeIngredients = document.createElement("div");
