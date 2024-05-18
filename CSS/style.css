@@ -228,4 +228,6 @@ body {
     display: block !important;
     top: 250px;
     right: 10px;
+    text-decoration: none;
+    color: black;
 }

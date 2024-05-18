@@ -62,6 +62,7 @@ a {
   border: 5px solid rgb(43, 101, 43);
   cursor: pointer;
   left: 50%;
+  text-decoration: none;
 }
 
 #playBtn:hover {
