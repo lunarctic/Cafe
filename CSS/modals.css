@@ -3,28 +3,30 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-
-#modal {
-    display: none; 
-    position: fixed; 
-    z-index: 666666;
-    left: 0; 
-    top: 0;
-    width: 100%; 
-    height: 100%; 
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5); 
 }
 
-#modal.show{
+#modal {
+    display: none;
+    position: fixed;
+    z-index: 666666;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#modal.show {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
     gap: 10%;
 }
 
-#fridgeModal, #ovenModal, #deliveryModal{
+#fridgeModal,
+#ovenModal,
+#deliveryModal {
     display: none;
     grid-column: 1/2;
     position: relative;
@@ -32,21 +34,23 @@
     justify-self: end;
 }
 
-#fridgeModal.show, #ovenModal.show, #deliveryModal.show{
+#fridgeModal.show,
+#ovenModal.show,
+#deliveryModal.show {
     display: block;
 }
 
-#fridgeModal{
+#fridgeModal {
     width: 40%;
     height: 65%;
 }
 
-#ovenModal{
+#ovenModal {
     width: 50%;
-    height:45%;
+    height: 45%;
 }
 
-#deliveryModal{
+#deliveryModal {
     width: 50%;
     height: 50%;
 }
@@ -62,26 +66,28 @@
     padding: 10px;
 }
 
-#deliveryModal .modalContent{
+#deliveryModal .modalContent {
     background-color: white;
     border: 10px solid #000000;
     border-radius: 50%;
     display: flex;
     align-items: center;
-    justify-content: center; 
-    overflow: hidden;  
+    justify-content: center;
+    overflow: hidden;
 }
 
-#ovenModal .modalContent{
+#ovenModal .modalContent {
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
     align-items: center;
-    justify-items: center; 
-    overflow: hidden;  
-    gap: 10px; 
+    justify-items: center;
+    overflow: hidden;
+    gap: 10px;
 }
 
-#ovenModal .modalContent div, #deliveryModal .modalContent div, .fridgeSlot{
+#ovenModal .modalContent div,
+#deliveryModal .modalContent div,
+.fridgeSlot {
     border: 4px dashed lightslategray;
     width: 80%;
     height: 80%;
@@ -90,24 +96,24 @@
     align-items: center;
 }
 
-#deliveryModal .modalContent div{
+#deliveryModal .modalContent div {
     border-radius: 50%;
 }
 
-.fridgeSlot{
+.fridgeSlot {
     border: 4px dashed gray;
 }
 
-#fridgeModal .modalContent{
+#fridgeModal .modalContent {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     align-items: center;
-    justify-items: center; 
+    justify-items: center;
 }
 
 /* the bake button */
-#ovenModal button{
+#ovenModal button {
     cursor: pointer;
     color: greenyellow;
     z-index: 88888888 !important;
@@ -118,7 +124,7 @@
     transform: translateX(-50%);
 }
 
-.btn{
+.btn {
     background-color: white;
     border: 3px solid black;
     border-radius: 20px;
@@ -132,17 +138,17 @@
     font-size: 20px;
 }
 
-#fridgeBtn{
+#fridgeBtn {
     top: -35px;
     left: 18px;
 }
 
-#ovenBtn{
+#ovenBtn {
     top: 95px;
     left: 8px;
 }
 
-.btn.show{
+.btn.show {
     display: flex;
 }
 
@@ -162,13 +168,14 @@
     text-align: center;
 }
 
-.close:hover, .close:focus {
+.close:hover,
+.close:focus {
     background-color: rgb(160, 0, 0);
     text-decoration: none;
     cursor: pointer;
 }
 
-#inventory{
+#inventory {
     position: absolute;
     display: none;
     width: 60%;
@@ -177,7 +184,7 @@
     justify-self: start;
 }
 
-#inventory .grid{
+#inventory .grid {
     width: 100%;
     height: 100%;
     background-color: rgb(224, 231, 232);
@@ -188,7 +195,7 @@
     justify-items: center;
 }
 
-#inventory .grid div{
+#inventory .grid div {
     border: 4px dashed lightslategray;
     width: 80%;
     height: 80%;
@@ -197,7 +204,7 @@
     align-items: center;
 }
 
-#inventory h3{
+#inventory h3 {
     color: white;
     font-family: "Press Start 2P", monospace;
     position: absolute;
@@ -207,36 +214,38 @@
     transform: translateX(-50%);
 }
 
-#inventory.show{
+#inventory.show {
     display: block;
 }
 
-#inventory .food, #fridgeModal .food, #deliveryModal .food{
+#inventory .food,
+#fridgeModal .food,
+#deliveryModal .food {
     width: 90%;
     cursor: pointer;
-    max-height: 100%;  
-    object-fit: contain;  
+    max-height: 100%;
+    object-fit: contain;
 }
 
-#deliveryModal .food{
+#deliveryModal .food {
     width: 70%;
 }
 
-#ovenModal .food{
+#ovenModal .food {
     height: 90%;
     cursor: pointer;
-    object-fit: contain; 
+    object-fit: contain;
 }
 
-#putOrderBtn{
+#putOrderBtn {
     display: none;
 }
 
-#putOrderBtn.show{
+#putOrderBtn.show {
     display: block;
 }
 
-#deliverBtn{
+#deliverBtn {
     cursor: pointer;
     color: greenyellow;
     z-index: 88888888 !important;
@@ -247,7 +256,7 @@
     transform: translateX(-50%);
 }
 
-#recipeBook{
+#recipeBook {
     width: 60%;
     max-height: 80vh;
     display: none;
@@ -256,62 +265,59 @@
     position: relative;
 }
 
-.recipeBookContent{
+.recipeBookContent {
     width: 100%;
     height: 100%;
     background-color: #fcf4dc;
     border: 10px solid #cd4c3c;
     font-family: "VT323", monospace;
     font-size: 30px;
-    overflow-y:auto;
+    overflow-y: auto;
 }
 
-#recipeBook.show{
+#recipeBook.show {
     display: block;
 }
 
-#recipeBtn{
+#recipeBtn {
     display: block !important;
     position: absolute;
     top: 220px;
     left: 5px;
 }
 
-.recipeRow{
+.recipeRow {
     display: flex;
     flex-direction: column;
     padding: 20px;
     width: 100%;
 }
 
-.recipeRow h3{
+.recipeRow h3 {
     padding-bottom: 10px;
 }
 
-.recipeIngredients{
+.recipeIngredients {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
 
-#recipeBook img{
+#recipeBook img {
     width: 40px;
 }
 
-#messageModal{
+#messageModal {
     width: 35%;
     height: 50%;
     display: none;
     grid-column: 1/3;
     justify-self: center;
     position: relative;
-    /* top: 50px;
-
-    padding: 40px;   */
 }
 
-#messageContent{
+#messageContent {
     background-color: #fcf4dc;
     border: 10px solid #cd4c3c;
     z-index: 7777777;
@@ -324,15 +330,16 @@
     font-size: 30px;
 }
 
-#messageModal h3{
+#messageModal h3 {
     font-size: 50px;
 }
 
-#messageModal.show, #charCustomisationModal.show{
+#messageModal.show,
+#charCustomisationModal.show {
     display: block;
 }
 
-#charCustomisationModal{
+#charCustomisationModal {
     width: 60%;
     height: 80vh;
     display: none;
@@ -341,11 +348,11 @@
     position: relative;
 }
 
-#charCustomisationModal .content{
+#charCustomisationModal .content {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
-    overflow-y:auto;
+    overflow-y: auto;
     width: 100%;
     height: 100%;
     background-color: #fcf4dc;
@@ -357,7 +364,7 @@
     width: 100%;
 }
 
-#charBtn{
+#charBtn {
     display: block !important;
     top: 120px;
     right: 5px;

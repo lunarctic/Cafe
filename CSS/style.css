@@ -1,11 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Press+Start+2P&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Rancho&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rancho&family=VT323&display=swap');
 /*
 font-family: "Press Start 2P"; 
-font-family: "DotGothic16", sans-serif;
-font-family: "Rancho", cursive;
 font-family: "VT323", monospace;
 */
 
@@ -14,7 +10,7 @@ font-family: "VT323", monospace;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
+}
 
 /* sizing the character*/
 :root {
@@ -96,7 +92,7 @@ body {
     z-index: 1;
 }
 
-#kitchenSet{
+#kitchenSet {
     top: 0;
 }
 
@@ -114,11 +110,11 @@ body {
     transform: translateX(-50%);
 }
 
-#counter img{
+#counter img {
     position: absolute;
 }
 
-#counterCenter{
+#counterCenter {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -127,7 +123,7 @@ body {
 
 #kitchen_floor {
     background-image: url("../img/furniture/tiles.png");
-    background-repeat: repeat; 
+    background-repeat: repeat;
     position: absolute;
     z-index: -999;
     left: 50%;
@@ -142,12 +138,13 @@ body {
     top: 0;
 }
 
-#fridgeContainer, #ovenContainer{
+#fridgeContainer,
+#ovenContainer {
     position: absolute;
 }
 
 /* Style for the order box */
-#orderContainer{
+#orderContainer {
     width: 200px;
     height: 200px;
     background-color: #faffdb;
@@ -164,18 +161,18 @@ body {
     padding: 10px 15px 15px 15px;
 }
 
-#orderContainer h3{
+#orderContainer h3 {
     text-align: center;
     max-height: 20%;
     font-size: 35px;
 }
 
-#orderContainer img{
+#orderContainer img {
     max-height: 80%;
     width: 75%;
 }
 
-#deliverySpot{
+#deliverySpot {
     position: absolute;
     z-index: 55555;
     left: 50%;
@@ -187,11 +184,11 @@ body {
     align-items: flex-start;
 }
 
-#delivery{
+#delivery {
     max-width: 90%;
 }
 
-#scoreTracker{
+#scoreTracker {
     width: 200px;
     background-color: #faffdb;
     border: 10px solid #ff654d;
@@ -203,7 +200,7 @@ body {
     font-family: "VT323", monospace;
 }
 
-#scoreTracker div:first-of-type{
+#scoreTracker div:first-of-type {
     display: flex;
     gap: 5px;
 }
@@ -215,19 +212,19 @@ body {
     background: rgb(193, 243, 192); /* Background for empty part of the bar */
     margin: auto;
 }
-  
+
 #progressBar {
     height: 100%;
     background: green; /* Color for the filled part */
 }
-  
-#musicBtn{
+
+#musicBtn {
     display: block !important;
     top: 200px;
     right: 10px;
 }
 
-#returnBtn{
+#returnBtn {
     display: block !important;
     top: 250px;
     right: 10px;

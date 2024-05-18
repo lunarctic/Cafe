@@ -1,4 +1,4 @@
-let foods = ["chocolate", "strawberry" , "CakeBase", "raspberry" , "blueberries", "pancakes" , "cookies", "CreamCheese" , "Cream", "Carrot" , "DonutBase", "lemon" , ];
+let foods = ["chocolate", "strawberry", "CakeBase", "raspberry", "blueberries", "pancakes", "cookies", "CreamCheese", "Cream", "Carrot", "DonutBase", "lemon",];
 
 const fridgeContent = document.querySelector("#fridgeModal .modalContent");
 
@@ -12,7 +12,7 @@ const ovenSlot3 = document.getElementById("ovenSlot3");
 
 const deliverySlot = document.getElementById("deliverySlot");
 
-function createFridgeSlots(){
+function createFridgeSlots() {
     for (let i = 1; i < 13; i++) {
         const fridgeSlot = document.createElement("div");
         const food = document.createElement("img");
@@ -20,32 +20,32 @@ function createFridgeSlots(){
         fridgeSlot.classList.add("fridgeSlot");
         fridgeSlot.appendChild(food);
         food.classList.add("food");
-        food.src = "img/food/" + foods[i-1] + ".png";
+        food.src = "img/food/" + foods[i - 1] + ".png";
         console.log("creating food/slot no" + i);
         food.addEventListener("click", transferFoodToInventory);
-}
+    }
 };
 
 createFridgeSlots()
 
 function transferFoodToInventory(event) {
-    const food= event.target;
+    const food = event.target;
     const foodSrc = getFilename(food.src);
     console.log("food: " + food);
     console.log("src: " + foodSrc);
-    
+
     const inventorySlots = [inventorySlot1, inventorySlot2, inventorySlot3];
-    
+
     for (let i = 0; i < inventorySlots.length; i++) {
         const inventorySlot = inventorySlots[i];
-        
+
         // If the slot is empty, assign the food source and add an event listener
         if (!inventorySlot.src || inventorySlot.src === "") {
             console.log(`Condition activated for inventorySlot${i + 1}`);
             inventorySlot.src = "img/food/" + foodSrc;
             console.log(`inventorySlot${i + 1} src:`, inventorySlot.src);
             inventorySlot.addEventListener("click", transferFood);
-            if((ovenModal.classList.contains("show") && !food.parentNode.classList.contains("inventorySlot")) ||(deliveryModal.classList.contains("show") && !food.parentNode.classList.contains("inventorySlot"))){
+            if ((ovenModal.classList.contains("show") && !food.parentNode.classList.contains("inventorySlot")) || (deliveryModal.classList.contains("show") && !food.parentNode.classList.contains("inventorySlot"))) {
                 //if the food is being transferred from the oven to the inventory (hence checking that the food being transferred isnt IN the inventory already)
                 food.removeAttribute("src");
             }
@@ -62,8 +62,8 @@ function getFilename(src) {
     return parts.pop(); // Gets the last part (the filename)
 }
 
-function transferFood(event){
-    const foodToTransfer= event.target;
+function transferFood(event) {
+    const foodToTransfer = event.target;
     if (fridgeModal.classList.contains("show")) {
         //if the food is being transferred back to the fridge, just delete the food from the inventory
         foodToTransfer.removeAttribute("src");
@@ -80,34 +80,30 @@ function transferFood(event){
     return;
 }
 
-function putFoodInOven(event){
+function putFoodInOven(event) {
     const food = event;
     const foodSrc = getFilename(food.src);
     console.log("src: " + foodSrc)
     const ovenSlots = [ovenSlot1, ovenSlot2, ovenSlot3];
-    
+
     for (let i = 0; i < ovenSlots.length; i++) {
         const ovenSlot = ovenSlots[i];
-        
-        // If the slot is empty, assign the food source and add an event listener
+
         if (!ovenSlot.src || ovenSlot.src === "") {
             console.log(`Condition activated for ovenSlot${i + 1}`);
             ovenSlot.src = "img/food/" + foodSrc;
             console.log(`ovenSlot${i + 1} src:`, ovenSlot.src);
             ovenSlot.addEventListener("click", transferFoodToInventory);
-
-            // Exit the loop once a slot is filled
             break;
         }
     }
 }
 
-function putFoodOnPlate(event){
+function putFoodOnPlate(event) {
     const food = event;
     const foodSrc = getFilename(food.src);
     console.log("src: " + foodSrc)
 
-    // If the slot is empty, assign the food source and add an event listener
     if (!deliverySlot.src || deliverySlot.src === "") {
         deliverySlot.src = "img/food/" + foodSrc;
         deliverySlot.addEventListener("click", transferFoodToInventory);

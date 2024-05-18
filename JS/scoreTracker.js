@@ -6,42 +6,40 @@ const savedLevel = localStorage.getItem("savedLevel");
 const currentScore = document.getElementById("currentScore");
 currentScore.innerHTML = score;
 
-if(savedScore){
+if (savedScore) {
   score = Number(savedScore);
   updateScoreNLevel();
   updateProgressBar();
 }
 
-if(savedLevel){
+if (savedLevel) {
   level = Number(savedLevel);
   updateScoreNLevel();
   updateProgressBar();
 }
 
-function updateScoreNLevel(){
+function updateScoreNLevel() {
   localStorage.setItem("savedScore", score);
   currentScore.innerHTML = score;
 
   if (score >= 100) {
-      level++; // Increase the level
-      localStorage.setItem("savedLevel", level);
-      score = 0; // Reset the score
-      localStorage.setItem("savedScore", score);
-      currentScore.innerHTML = score;
+    level++;
+    localStorage.setItem("savedLevel", level);
+    score = 0; // Reset the score
+    localStorage.setItem("savedScore", score);
+    currentScore.innerHTML = score;
   }
-  updateRecipeBook(); // Function to handle the start of a new level
+  updateRecipeBook(); // Because there may be new recipes now
 };
 
 function updateProgressBar() {
-    const progressBar = document.getElementById("progressBar");
-    const levelDisplay = document.getElementById("levelDisplay");
-  
-    // Set the width of the progress bar as a percentage
-    progressBar.style.width = score + "%"; // Since score is between 0 and 100
-  
-    // Update the level display
-    levelDisplay.innerHTML = "Level " + level;
-  };
+  const progressBar = document.getElementById("progressBar");
+  const levelDisplay = document.getElementById("levelDisplay");
+
+  // Set the width of the progress bar as a percentage
+  progressBar.style.width = score + "%"; // Since score is between 0 and 100
+  levelDisplay.innerHTML = "Level " + level;
+};
 
 function updateRecipeBook() {
   console.log("current level: ", level);
@@ -49,45 +47,42 @@ function updateRecipeBook() {
   //first the beginner recipes:
   addRecipe("ChocolateCake", ["strawberry.png", "CakeBase.png", "chocolate.png"]);
   addRecipe("RaspberryCheesecakePot", ["raspberry.png", "CreamCheese.png", "cookies.png"]);
-  addRecipe("StrawberryDonut", ["strawberry.png", "DonutBase.png", "Cream.png"]);  
+  addRecipe("StrawberryDonut", ["strawberry.png", "DonutBase.png", "Cream.png"]);
 
-  if(level >= 2){
+  if (level >= 2) {
     // Adding a new recipe
     addRecipe("BerryPancakes", ["pancakes.png", "blueberries.png", "raspberry.png"]);
   }
 
-  if(level >= 3){
+  if (level >= 3) {
     addRecipe("LemonCheesecake", ["lemon.png", "cookies.png", "CreamCheese.png"]);
   }
 
-  if(level >= 4){
+  if (level >= 4) {
     addRecipe("LemonBlueberryPot", ["lemon.png", "blueberries.png", "cookies.png"]);
   }
 
-  
-  if(level >= 5){
-    // Adding a new recipe
+  if (level >= 5) {
     addRecipe("LemonDonut", ["lemon.png", "DonutBase.png", "Cream.png"]);
   }
 
-  if(level >= 6){
+  if (level >= 6) {
     addRecipe("ChocolatePancakes", ["pancakes.png", "chocolate.png", "strawberry.png"]);
   }
 
-  if(level >= 7){
+  if (level >= 7) {
     addRecipe("CarrotCake", ["Carrot.png", "Cream.png", "CakeBase.png"]);
   }
 
-  if(level >= 8){
-    // Adding a new recipe
+  if (level >= 8) {
     addRecipe("CookiesNCreamPot", ["Cream.png", "cookies.png", "chocolate.png"]);
   }
 
-  if(level >= 9){
+  if (level >= 9) {
     addRecipe("ChocolateDonut", ["chocolate.png", "DonutBase.png", "Cream.png"]);
   }
 
-  if(level >= 10){
+  if (level >= 10) {
     addRecipe("CookiesNCreamPancakes", ["pancakes.png", "cookies.png", "Cream.png"]);
   }
 
@@ -96,8 +91,8 @@ function updateRecipeBook() {
 
 function addRecipe(name, ingredients) {
   const newRecipe = {
-      name: name,
-      ingredients: ingredients.sort(),
+    name: name,
+    ingredients: ingredients.sort(),
   };
 
   recipes.push(newRecipe);

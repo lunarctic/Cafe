@@ -7,7 +7,7 @@ character.style.top = y + "px";
 
 function checkCollision(newFeetX, newFeetY) {
     const feetRect = {
-        top: newFeetY, 
+        top: newFeetY,
         left: newFeetX,
         right: newFeetX + feet.clientWidth,
         bottom: newFeetY + feet.clientHeight,
@@ -21,12 +21,12 @@ function checkCollision(newFeetX, newFeetY) {
             right: furniture.getBoundingClientRect().right,
             bottom: furniture.getBoundingClientRect().bottom,
         };
-        
+
         if (
-           feetRect.right > furnitureRect.left &&
+            feetRect.right > furnitureRect.left &&
             feetRect.left < furnitureRect.right &&
             feetRect.bottom > furnitureRect.top &&
-            feetRect.top < furnitureRect.bottom 
+            feetRect.top < furnitureRect.bottom
         ) {
             console.log("furniture collision");
             console.log("collision furnitureRect ", furnitureRect);
@@ -41,12 +41,12 @@ function checkCollision(newFeetX, newFeetY) {
         left: kitchenFloor.getBoundingClientRect().left,
         right: kitchenFloor.getBoundingClientRect().right,
         bottom: kitchenFloor.getBoundingClientRect().bottom,
-        } 
+    }
 
-    if(feetRect.right > kitchenFloorRect.right || feetRect.left < kitchenFloorRect.left || feetRect.top < kitchenFloorRect.top || feetRect.bottom > kitchenFloorRect.bottom){
+    if (feetRect.right > kitchenFloorRect.right || feetRect.left < kitchenFloorRect.left || feetRect.top < kitchenFloorRect.top || feetRect.bottom > kitchenFloorRect.bottom) {
         console.log("floor collision");
         console.log("collision floorRect ", kitchenFloorRect);
-        console.log("collision feetRect " , feetRect);
+        console.log("collision feetRect ", feetRect);
         return true; // Collision detected
     }
     return false; // No collision
@@ -57,7 +57,7 @@ document.addEventListener("keydown", function (event) {
     let newX = x; // New potential X position
     let newY = y; // New potential Y position
     let newFeetX = newX + (5 * feetScaleSize);
-    let newFeetY = newY + (30 * feetScaleSize); 
+    let newFeetY = newY + (30 * feetScaleSize);
 
     //left
     if (event.key == "a" || event.key == "A") {
@@ -76,7 +76,7 @@ document.addEventListener("keydown", function (event) {
     else if (event.key == "d" || event.key == "D") {
         newX += speed;
         characterSpritesheet.classList.add("face-right", "animate_spritesheet")
-        newFeetX += speed; 
+        newFeetX += speed;
     }
     //down
     else if (event.key == "s" || event.key == "S") {

@@ -1,6 +1,6 @@
-#timer{
+#timer {
     display: none;
-    background-color:white;
+    background-color: white;
     width: 55px;
     height: 55px;
     color: #ff654d;
@@ -16,7 +16,7 @@
     font-size: 18px;
 }
 
-#timer.show{
+#timer.show {
     display: flex;
     justify-content: center;
     align-items: center;

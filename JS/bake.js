@@ -68,6 +68,6 @@ function bake() {
   // Start the countdown, updating every second (1000 ms)
   const countdownInterval = setInterval(updateTimer, 1000);
 
-  // Initial update (so the timer starts with 20 instead of waiting for the first interval)
+  // Initial update (so the timer starts with 10 instead of waiting for the first interval)
   updateTimer();
 };

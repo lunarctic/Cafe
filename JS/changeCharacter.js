@@ -1,10 +1,10 @@
 const characters = document.querySelectorAll("#charCustomisationModal img");
 
-for (const character of characters){
+for (const character of characters) {
     character.addEventListener("click", updateCharacter);
 };
 
-function updateCharacter(event){
+function updateCharacter(event) {
     const character = event.target;
     const characterSrc = getFilename(character.src);
     console.log("characterSrc: ", characterSrc);
@@ -13,13 +13,13 @@ function updateCharacter(event){
     toggleModal(charCustomisationModal, false, false);
 };
 
-function setCharacter(characterSrc){
+function setCharacter(characterSrc) {
     characterSpritesheet.removeAttribute("src");
     characterSpritesheet.src = "img/spritesheets/" + characterSrc;
 };
 
 const characterSrc = localStorage.getItem("characterSkin");
 
-if(characterSrc){
+if (characterSrc) {
     setCharacter(characterSrc);
 };

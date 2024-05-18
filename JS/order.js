@@ -26,7 +26,7 @@ function deliver() {
         score += 20; 
         console.log("score: " + score)
         updateScoreNLevel();
-        updateProgressBar(); // Function to update the visual progress bar
+        updateProgressBar();
 
     } else {
         messageTitle.innerHTML = "You got it wrong!"
