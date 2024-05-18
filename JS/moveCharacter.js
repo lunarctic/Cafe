@@ -13,9 +13,6 @@ function checkCollision(newFeetX, newFeetY) {
         bottom: newFeetY + feet.clientHeight,
     };
 
-    feetJS.style.width = feet.clientWidth + "px";
-    feetJS.style.height = feet.clientHeight + "px";
-
     for (const furniture of furnitures) {
         const furnitureRect = {
             name: furniture.id, //to check in console if there are problems
@@ -33,11 +30,6 @@ function checkCollision(newFeetX, newFeetY) {
         ) {
             console.log("furniture collision");
             console.log("collision furnitureRect ", furnitureRect);
-            
-            newFeetJS.style.width = feet.clientWidth + "px";
-            newFeetJS.style.height = feet.clientHeight + "px";
-            newFeetJS.style.left = newFeetX + "px";
-            newFeetJS.style.top = newFeetY + "px";
 
             return true; // Collision detected
         }
@@ -55,17 +47,10 @@ function checkCollision(newFeetX, newFeetY) {
         console.log("floor collision");
         console.log("collision floorRect ", kitchenFloorRect);
         console.log("collision feetRect " , feetRect);
-        newFeetJS.style.width = feet.clientWidth + "px";
-            newFeetJS.style.height = feet.clientHeight + "px";
-            newFeetJS.style.left = newFeetX + "px";
-            newFeetJS.style.top = newFeetY + "px";
         return true; // Collision detected
     }
     return false; // No collision
 }
-
-const feetJS = document.getElementById("feetJS");
-const newFeetJS = document.getElementById("newFeetJS");
 
 document.addEventListener("keydown", function (event) {
     //tried moving these definitions but it caused problems:
@@ -106,8 +91,6 @@ document.addEventListener("keydown", function (event) {
         character.style.left = x + "px";
         character.style.top = y + "px";
 
-        feetJS.style.left = newFeetX + "px";
-        feetJS.style.top = newFeetY + "px";
 
         checkButtons();
     }

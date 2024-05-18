@@ -63,31 +63,7 @@ body {
     top: calc(-96px * var(--scale-size));
 }
 
-/*
-#plate {
-    width: calc(13px * var(--scale-size));
-    z-index: 12323;
-    position: absolute;
-    top: calc(17px * var(--scale-size));
-    left: calc(1px * var(--scale-size));
-} 
-
-.animate_plate {
-    animation: movePlateRight 2s steps(3) infinite;
-}
-
-@keyframes movePlateRight {
-    from {
-        transform: translate3d(0px, 0, 0);
-    }
-
-    to {
-        transform: translate3d(10%, 0, 0);
-    }
-} */
-
 #feet {
-    background-color: rgba(0, 255, 0, 0.3);
     width: calc(22px * var(--scale-size));
     height: calc(3px * var(--scale-size));
     position: absolute;
@@ -172,17 +148,6 @@ body {
     left: 0;
 }
 
-#feetJS {
-    position: absolute;
-    z-index: 4444;
-    background-color: blue;
-}
-
-#newFeetJS{
-    position: absolute;
-    z-index: 55555;
-    background-color: red;
-}
 
 #fridgeContainer, #ovenContainer{
     position: absolute;
