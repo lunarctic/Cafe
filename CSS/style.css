@@ -27,7 +27,7 @@ body {
 /* Style for the character */
 .character {
     width: calc(32px * var(--scale-size));
-    height: calc(33px * var(--scale-size));
+    height: calc(32px * var(--scale-size));
     overflow: hidden;
     position: absolute;
     z-index: 333;
