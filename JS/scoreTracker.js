@@ -1,5 +1,5 @@
 let score = 0; // Current score. Max score is 100
-let level = 1; // Current level
+let level = 30; // Current level
 const savedScore = localStorage.getItem("savedScore");
 const savedLevel = localStorage.getItem("savedLevel");
 
